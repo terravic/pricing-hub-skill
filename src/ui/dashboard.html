@@ -141,22 +141,22 @@
   <div id="taskExecutionBanner" style="background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--primary); padding: 10px 16px; border-radius: 6px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
     <div>
       <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Active Task Context</span>
-      <div id="taskBannerTitle" style="font-size: 13px; font-weight: 700; color: var(--text-main);">Task: Batch Parity Verification &bull; Target: data/golden_dataset/golden_claims_all.json</div>
+      <div id="taskBannerTitle" style="font-size: 13px; font-weight: 700; color: var(--text-main);">Task: Contract & Reimbursement Policy Ingestion</div>
     </div>
-    <span class="badge badge-success" id="taskBannerBadge">Parity Verified</span>
+    <span class="badge badge-success" id="taskBannerBadge">Ingested & Indexed</span>
   </div>
 
   <nav class="nav-tabs">
-    <button class="tab-btn" onclick="switchTab('tab-ingestion')">1. Ingestion Inspector</button>
+    <button class="tab-btn active" onclick="switchTab('tab-ingestion')">1. Ingestion Inspector</button>
     <button class="tab-btn" onclick="switchTab('tab-pricing')">2. Interactive Adjudicator</button>
-    <button class="tab-btn active" onclick="switchTab('tab-verification')">3. Verification Parity</button>
+    <button class="tab-btn" onclick="switchTab('tab-verification')">3. Verification Parity</button>
     <button class="tab-btn" onclick="switchTab('tab-monitoring')">4. Load Pipeline & Bottlenecks</button>
     <button class="tab-btn" onclick="switchTab('tab-cogs')">5. Multi-Cog Flow</button>
     <button class="tab-btn" onclick="switchTab('tab-x12')">6. X12 EDI & JSON Transformer</button>
   </nav>
 
   <!-- TAB 1: INGESTION -->
-  <div id="tab-ingestion" class="tab-panel">
+  <div id="tab-ingestion" class="tab-panel active">
     <div class="grid-stats">
       <div class="stat-card">
         <div class="label">Ingested Contracts</div>
@@ -343,7 +343,7 @@
   </div>
 
   <!-- TAB 3: VERIFICATION PARITY -->
-  <div id="tab-verification" class="tab-panel active">
+  <div id="tab-verification" class="tab-panel">
     <div class="grid-stats">
       <div class="stat-card">
         <div class="label">Evaluated Golden Claims</div>

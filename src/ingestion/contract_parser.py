@@ -86,6 +86,13 @@ class ContractParser:
         for npi in card.provider_npi_list:
             self.provider_contract_index[npi] = card.contract_id
 
+        # Auto-generate / adapt dashboard for ingestion task
+        try:
+            from src.ui.dashboard_generator import generate_dashboard
+            generate_dashboard(task_type="ingestion")
+        except Exception:
+            pass
+
         return card, errors
 
     def parse_pdf_contract(self, file_path: str) -> Tuple[Optional[ContractRateCard], List[str]]:

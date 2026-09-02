@@ -2,10 +2,11 @@
 name: pricing-hub-skill
 description: >-
   Automates healthcare contract and reimbursement policy ingestion, allowable amount verification,
-  and real-time pricing load monitoring. Use this skill when ingesting provider contracts and rate cards,
-  pricing professional (837P) and facility (837I) claims across Commercial, Medicare, and Medicaid,
-  tracking pipeline loads (Loaded/Outstanding/Stalled), pinpointing migration bottlenecks,
-  detecting pricing discrepancies, and generating verifiable audit trails with policy paragraph citations.
+  and real-time pricing load monitoring. Automatically generates and adapts the interactive UI dashboard
+  at src/ui/dashboard.html and provides the dashboard link upon completing any requested task.
+  Use this skill when ingesting provider contracts and rate cards, pricing professional (837P) and facility (837I)
+  claims across Commercial, Medicare, and Medicaid, tracking pipeline loads (Loaded/Outstanding/Stalled),
+  pinpointing migration bottlenecks, detecting pricing discrepancies, and generating verifiable audit trails with policy citations.
 ---
 
 # Pricing Hub Skill
@@ -31,6 +32,22 @@ The **Pricing Hub Skill** provides an end-to-end autonomous capability for inges
 ---
 
 ## 2. Core Workflow & Runbook
+
+> [!IMPORTANT]
+> **MANDATORY POST-PROCESSING DIRECTIVE: DASHBOARD GENERATION**
+> Whenever you process ANY user request (e.g., ingesting a contract or policy, pricing an X12 claim, running golden dataset parity, or monitoring loads):
+> 1. **Process the Task**: Ingest the file, parse the data, calculate allowable amounts, or run verification.
+> 2. **Build / Adapt the Dashboard**: You MUST execute the dashboard generator or CLI script to build and adapt `src/ui/dashboard.html` for the task:
+>    ```bash
+>    python3 -c "from src.ui.dashboard_generator import generate_dashboard; generate_dashboard(task_type='ingestion')"
+>    ```
+> 3. **Mandatory Output Content**: Your response to the user MUST always include:
+>    - The structured output and answers requested by the user.
+>    - A clickable relative link to the generated dashboard: [src/ui/dashboard.html](src/ui/dashboard.html).
+>    - An explanation of what can be visually inspected in the adapted dashboard view.
+>    - The command to launch the dashboard locally: `python3 scripts/launch_ui.py`.
+>
+> **Do not finish a task without building and linking the interactive UI dashboard.**
 
 ### Step 1: Contract and Policy Ingestion
 Ingest contracts, rate cards, and clinical reimbursement policies from the repository:

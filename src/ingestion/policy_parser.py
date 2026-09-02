@@ -69,6 +69,12 @@ class PolicyParser:
                 else:
                     results["loaded_rules"] += len(rules)
 
+        try:
+            from src.ui.dashboard_generator import generate_dashboard
+            generate_dashboard(task_type="ingestion")
+        except Exception:
+            pass
+
         return results
 
     def get_policy(self, policy_id: str) -> Optional[PolicyRule]:

@@ -94,6 +94,12 @@ class X12ClaimLoader:
             except Exception as e:
                 errors.append(f"Failed to parse claim {item.get('claim_id')}: {str(e)}")
 
+        try:
+            from src.ui.dashboard_generator import generate_dashboard
+            generate_dashboard(task_type="verification", claims_file=file_path)
+        except Exception:
+            pass
+
         return valid_claims, rejected, errors
 
     def _parse_x12_json_loops(self, x12_data: Dict[str, Any]) -> Claim:
