@@ -34,20 +34,24 @@ The **Pricing Hub Skill** provides an end-to-end autonomous capability for inges
 ## 2. Core Workflow & Runbook
 
 > [!IMPORTANT]
-> **MANDATORY POST-PROCESSING DIRECTIVE: DASHBOARD GENERATION**
+> **MANDATORY POST-PROCESSING DIRECTIVE: DASHBOARD & ARTIFACT GENERATION**
 > Whenever you process ANY user request (e.g., ingesting a contract or policy, pricing an X12 claim, running golden dataset parity, or monitoring loads):
 > 1. **Process the Task**: Ingest the file, parse the data, calculate allowable amounts, or run verification.
-> 2. **Build / Adapt the Dashboard**: You MUST execute the dashboard generator or CLI script to build and adapt `src/ui/dashboard.html` for the task:
+> 2. **Build / Adapt the Dashboard**: You MUST execute the dashboard generator or CLI script to build and adapt `src/ui/dashboard.html` and `dashboard.html` for the task:
 >    ```bash
 >    python3 -c "from src.ui.dashboard_generator import generate_dashboard; generate_dashboard(task_type='ingestion')"
 >    ```
-> 3. **Mandatory Output Content**: Your response to the user MUST always include:
+> 3. **Interactive Artifact Harness Integration**:
+>    If you are running in an agent harness that provides an artifact creation tool (such as `write_to_file` in the conversation artifact directory):
+>    - You MUST emit or update the dashboard artifact named `dashboard.html` with `UserFacing: true` copying the contents of `src/ui/dashboard.html`.
+>    - This ensures the dashboard renders directly in the agent harness interactive artifact panel so the user can interact with it immediately.
+> 4. **Mandatory Output Content**: Your response to the user MUST always include:
 >    - The structured output and answers requested by the user.
->    - A clickable relative link to the generated dashboard: [src/ui/dashboard.html](src/ui/dashboard.html).
+>    - Clickable relative links to both [dashboard.html](dashboard.html) and [src/ui/dashboard.html](src/ui/dashboard.html).
 >    - An explanation of what can be visually inspected in the adapted dashboard view.
 >    - The command to launch the dashboard locally: `python3 scripts/launch_ui.py`.
 >
-> **Do not finish a task without building and linking the interactive UI dashboard.**
+> **Do not finish a task without building, emitting as an artifact, and linking the interactive UI dashboard.**
 
 ### Step 1: Contract and Policy Ingestion
 Ingest contracts, rate cards, and clinical reimbursement policies from the repository:

@@ -289,7 +289,8 @@ Whenever any skill task finishes (contract ingestion, single claim .x12 parsing,
 - **5. Multi-Cog Flow**: Interactive visualizer tracing payloads across Member, Benefit, Contract, and Pricing engine cogs.
 
 ### Accessing the Interface:
-- **Direct File Access**: Open `src/ui/dashboard.html` directly in any web browser.
+- **Interactive Artifact Panel**: View and interact directly with `dashboard.html` inside your agent harness UI.
+- **Direct Workspace File Access**: Open `dashboard.html` or `src/ui/dashboard.html` directly in any web browser.
 - **Local HTTP Runner**: Run `python3 scripts/launch_ui.py` to serve the interface locally on port 8080.
 
 ---

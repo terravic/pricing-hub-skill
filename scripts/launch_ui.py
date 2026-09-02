@@ -31,12 +31,12 @@ def main():
         print(f"Error: Dashboard file not found at {dashboard_rel}")
         sys.exit(1)
 
-    url = f"http://localhost:{port}/{dashboard_rel}"
+    url = f"http://localhost:{port}/dashboard.html"
     print("=" * 65)
     print("       PRICING HUB: INTERACTIVE DASHBOARD RUNNER       ")
     print("=" * 65)
     print(f"[*] Dashboard URL : {url}")
-    print(f"[*] Project Root  : {PROJECT_ROOT}")
+    print(f"[*] Canonical Path: {PROJECT_ROOT}/src/ui/dashboard.html")
     print("[*] Theme Support : Light / Dark Mode Toggle Enabled")
     print("[*] Press Ctrl+C to stop local server.\n")
 

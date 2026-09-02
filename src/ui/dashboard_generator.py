@@ -101,6 +101,11 @@ def generate_dashboard(
     with open(DASHBOARD_PATH, "w", encoding="utf-8") as f:
         f.write(content)
 
+    # Also keep root dashboard.html in sync for direct workspace file access and clicking
+    root_dashboard = os.path.join(PROJECT_ROOT, "dashboard.html")
+    with open(root_dashboard, "w", encoding="utf-8") as f:
+        f.write(content)
+
     return rel_path
 
 
