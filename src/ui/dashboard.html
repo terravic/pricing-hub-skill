@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Hub Management Dashboard</title>
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --primary: #2563EB;
+      --success-bg: #DCFCE7;
+      --success-text: #166534;
+      --warning-bg: #FEF9C3;
+      --warning-text: #854D0E;
+      --danger-bg: #FEE2E2;
+      --danger-text: #991B1B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.5; padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    h1 { font-size: 22px; font-weight: 700; color: var(--text-main); }
+    .badge { padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .badge-success { background: var(--success-bg); color: var(--success-text); }
+    .badge-warning { background: var(--warning-bg); color: var(--warning-text); }
+    .badge-danger { background: var(--danger-bg); color: var(--danger-text); }
+
+    .grid-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+    .stat-card .label { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+    .stat-card .value { font-size: 26px; font-weight: 700; color: var(--text-main); }
+
+    .section-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .section-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 10px 14px; background: #F1F5F9; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:hover { background-color: #F8FAFC; }
+
+    .progress-bar-bg { width: 100%; background: #E2E8F0; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 4px; }
+    .progress-bar-fill { height: 100%; background: var(--primary); border-radius: 4px; }
+
+    .diagnostics-list { list-style: none; }
+    .diagnostic-item { padding: 12px 16px; border: 1px solid var(--border); border-left: 4px solid #EF4444; border-radius: 4px; margin-bottom: 10px; background: #FFF; }
+    .diagnostic-header { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .diagnostic-desc { font-size: 13px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Pricing Hub: Real-Time Ingestion & Adjudication Dashboard</h1>
+      <p style="font-size: 13px; color: var(--text-muted);">Autonomous Contract Ingestion, Allowable Verification, and Pipeline Monitoring</p>
+    </div>
+    <div>
+      <span class="badge badge-success">Pipeline Active</span>
+    </div>
+  </header>
+
+  <div class="grid-stats">
+    <div class="stat-card">
+      <div class="label">Total Tracked Loads</div>
+      <div class="value">5</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Loaded (100% Parity)</div>
+      <div class="value" style="color: #16A34A;">1</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Outstanding (In-Progress)</div>
+      <div class="value" style="color: #2563EB;">1</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Stalled (Bottlenecks)</div>
+      <div class="value" style="color: #DC2626;">3</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-title">
+      <span>Active Pricing Loads</span>
+      <span style="font-size: 12px; color: var(--text-muted); font-weight: normal;">Auto-refreshed from Load Tracker</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Load ID</th>
+          <th>Contract ID</th>
+          <th>Line of Business</th>
+          <th>Status</th>
+          <th>Progress</th>
+          <th>Estimated Completion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>LOAD-COMM-HMO-01</strong></td>
+          <td>CTR-COMM-2026</td>
+          <td>COMMERCIAL</td>
+          <td><span class="badge badge-success">Loaded</span></td>
+          <td style="width: 200px;">
+            100.0% (1,000 / 1,000)
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+          </td>
+          <td>Completed</td>
+        </tr>
+        <tr>
+          <td><strong>LOAD-MED-CHOICE-02</strong></td>
+          <td>CTR-MED-ADV-2026</td>
+          <td>MEDICARE</td>
+          <td><span class="badge badge-warning">Outstanding</span></td>
+          <td style="width: 200px;">
+            60.0% (450 / 750)
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+          </td>
+          <td>Active (SLA On Track)</td>
+        </tr>
+        <tr>
+          <td><strong>LOAD-MCD-COMM-03</strong></td>
+          <td>CTR-MCD-MCO-2026</td>
+          <td>MEDICAID</td>
+          <td><span class="badge badge-danger">Stalled</span></td>
+          <td style="width: 200px;">
+            5.0% (25 / 500)
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 5%; background: #EF4444;"></div></div>
+          </td>
+          <td>Paused (Unmapped Provider NPI)</td>
+        </tr>
+        <tr>
+          <td><strong>LOAD-COMM-PPO-04</strong></td>
+          <td>CTR-COMM-PPO-2026</td>
+          <td>COMMERCIAL</td>
+          <td><span class="badge badge-danger">Stalled</span></td>
+          <td style="width: 200px;">
+            0.0% (0 / 1,200)
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 0%; background: #EF4444;"></div></div>
+          </td>
+          <td>Paused (Rate Card Date Overlap)</td>
+        </tr>
+        <tr>
+          <td><strong>LOAD-MED-SNP-05</strong></td>
+          <td>CTR-MED-SNP-2026</td>
+          <td>MEDICARE</td>
+          <td><span class="badge badge-danger">Stalled</span></td>
+          <td style="width: 200px;">
+            30.0% (120 / 400)
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 30%; background: #EF4444;"></div></div>
+          </td>
+          <td>Paused (Validation Failure Rate > 2%)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-card">
+    <div class="section-title">
+      <span>Stalled Bottleneck Root-Cause Diagnostics</span>
+    </div>
+    <ul class="diagnostics-list">
+      <li class="diagnostic-item">
+        <div class="diagnostic-header">Load LOAD-MCD-COMM-03: Provider NPI Unmapped</div>
+        <div class="diagnostic-desc">Provider NPIs associated with contract CTR-MCD-MCO-2026 are not mapped in credentialing registry. Action: Update Provider Master Index before proceeding.</div>
+      </li>
+      <li class="diagnostic-item">
+        <div class="diagnostic-header">Load LOAD-COMM-PPO-04: Rate Card Date Overlap</div>
+        <div class="diagnostic-desc">Effective date window conflicts with an existing active schedule for contract CTR-COMM-PPO-2026. Action: Adjust date boundaries in contract metadata.</div>
+      </li>
+      <li class="diagnostic-item">
+        <div class="diagnostic-header">Load LOAD-MED-SNP-05: Validation Variance Quality Breach</div>
+        <div class="diagnostic-desc">Batch validation failure rate of 5.0% exceeds the 2.0% quality gate threshold. Action: Review discrepancy reports and verify modifier rules.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-title">
+      <span>100-Claim Golden Dataset Parity Verification</span>
+      <span class="badge badge-success">100.0% Concordance</span>
+    </div>
+    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+      Evaluated 100 high-fidelity test claims (55 Professional, 45 Facility) across Commercial, Medicare, and Medicaid. Total Billed: $1,780,875.00 | Total Allowable: $646,750.00 | Discrepancies: 0.
+    </p>
+  </div>
+
+</body>
+</html>

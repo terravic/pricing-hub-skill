@@ -1,0 +1,47 @@
+[
+  {
+    "case_id": "DISP-CASE-001",
+    "category": "PAID",
+    "description": "Clean office visit (99214) with valid diagnosis and active contract rate",
+    "claim_type": "PROFESSIONAL",
+    "expected_disposition": "PAID",
+    "expected_carc": "CO-45",
+    "notes": "Payment matches fee schedule ($165.00), contractual discount applied."
+  },
+  {
+    "case_id": "DISP-CASE-002",
+    "category": "DENIED",
+    "description": "Specimen handling fee (99000) billed alongside venipuncture (36415)",
+    "claim_type": "PROFESSIONAL",
+    "expected_disposition": "DENIED",
+    "expected_carc": "CO-97",
+    "notes": "Bundled service; no separate allowable."
+  },
+  {
+    "case_id": "DISP-CASE-003",
+    "category": "DENIED",
+    "description": "Claim submitted 120 days post-service exceeding 90-day timely filing limit",
+    "claim_type": "PROFESSIONAL",
+    "expected_disposition": "DENIED",
+    "expected_carc": "CO-29",
+    "notes": "Denial for untimely filing."
+  },
+  {
+    "case_id": "DISP-CASE-004",
+    "category": "DENIED",
+    "description": "Cardiac diagnostic (93000) billed with non-qualifying diagnosis (Z00.00)",
+    "claim_type": "PROFESSIONAL",
+    "expected_disposition": "DENIED",
+    "expected_carc": "CO-16",
+    "notes": "Medical necessity requirement not met under CMS-NCD-220.4."
+  },
+  {
+    "case_id": "DISP-CASE-005",
+    "category": "SUSPENDED",
+    "description": "Inpatient high-dollar complex facility claim exceeding $100,000 threshold",
+    "claim_type": "FACILITY",
+    "expected_disposition": "SUSPENDED",
+    "expected_carc": null,
+    "notes": "Suspended for manual clinician itemized bill audit."
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "rule_id": "RULE-FS-001",
+    "rule_name": "Standard Fee Schedule Allowable",
+    "line_item_edit": "Allowable pegged to contracted physician fee schedule",
+    "contract_section": "Section 3.1 - Standard Fee Schedule",
+    "policy_document": "PAYER-RP-001 / CMS MPFS",
+    "policy_paragraph": "Paragraph 1.1",
+    "adjudication_action": "ALLOW",
+    "carc_code": "CO-45",
+    "description": "Calculates contractual discount between billed charge and fee schedule allowable."
+  },
+  {
+    "rule_id": "RULE-MPPR-002",
+    "rule_name": "Multiple Procedure Payment Reduction (MPPR)",
+    "line_item_edit": "Secondary surgical procedure allowable reduced by 50%",
+    "contract_section": "Section 5.1 - Multiple Procedure Reductions",
+    "policy_document": "PAYER-RP-042",
+    "policy_paragraph": "Paragraph 4.1",
+    "adjudication_action": "REDUCE_50",
+    "carc_code": "CO-59",
+    "description": "Reduces second and subsequent surgical procedures performed on same date."
+  },
+  {
+    "rule_id": "RULE-SPLIT-003",
+    "rule_name": "Diagnostic Split Modifier 26/TC",
+    "line_item_edit": "Splits global diagnostic code into Professional (-26) or Technical (-TC)",
+    "contract_section": "Section 6.4 - Diagnostic Splitting",
+    "policy_document": "PAYER-RP-055",
+    "policy_paragraph": "Paragraph 2.4",
+    "adjudication_action": "ALLOW_SPLIT",
+    "carc_code": "CO-45",
+    "description": "Applies dedicated component fee schedule when modifier 26 or TC is present."
+  },
+  {
+    "rule_id": "RULE-MOD25-004",
+    "rule_name": "Modifier -25 Same Day E&M with Procedure",
+    "line_item_edit": "Requires Modifier -25 when E&M billed on same date as minor surgery",
+    "contract_section": "Section 3.1 & Exhibit C",
+    "policy_document": "PAYER-RP-109",
+    "policy_paragraph": "Paragraph 3.2",
+    "adjudication_action": "ALLOW_OR_DENY",
+    "carc_code": "CO-16",
+    "description": "Denies E&M without modifier -25 when concurrent surgical code exists."
+  },
+  {
+    "rule_id": "RULE-BUNDLE-005",
+    "rule_name": "Incidental Specimen Handling Bundling",
+    "line_item_edit": "CPT 99000 bundled into primary lab / office visit",
+    "contract_section": "Section 8.2 - Incidental Codes",
+    "policy_document": "PAYER-RP-018",
+    "policy_paragraph": "Paragraph 5.1",
+    "adjudication_action": "DENY",
+    "carc_code": "CO-97",
+    "description": "Denies handling charge as bundled into primary venipuncture or office code."
+  },
+  {
+    "rule_id": "RULE-DRG-006",
+    "rule_name": "Inpatient DRG Case Rate Adjudication",
+    "line_item_edit": "Priced via Base Rate x Relative Weight + High-Cost Outlier",
+    "contract_section": "Section 4.2 - Inpatient Case Rates",
+    "policy_document": "CMS IPPS Final Rule",
+    "policy_paragraph": "Section IV.B",
+    "adjudication_action": "ALLOW_DRG",
+    "carc_code": "CO-45",
+    "description": "Calculates prospective DRG payment and checks $45,000 threshold for 80% marginal outlier."
+  },
+  {
+    "rule_id": "RULE-TIMELY-007",
+    "rule_name": "Contractual Timely Filing Enforcement",
+    "line_item_edit": "Claim filing date > 90 days after service date",
+    "contract_section": "Section 7.3 - Timely Filing Limit",
+    "policy_document": "PAYER-RP-003",
+    "policy_paragraph": "Paragraph 1.2",
+    "adjudication_action": "DENY",
+    "carc_code": "CO-29",
+    "description": "Denies entire claim or line item when submission exceeds contractual filing window."
+  },
+  {
+    "rule_id": "RULE-MED-NEC-008",
+    "rule_name": "Medical Necessity LCD/NCD Verification",
+    "line_item_edit": "Diagnosis code must match approved CMS LCD indication",
+    "contract_section": "Section 2.1 - Clinical Policy Guidelines",
+    "policy_document": "CMS-NCD-220.4",
+    "policy_paragraph": "Paragraph 3.1(a)",
+    "adjudication_action": "ALLOW_OR_DENY",
+    "carc_code": "CO-16",
+    "description": "Denies diagnostic imaging or specialty procedures when diagnosis fails LCD/NCD criteria."
+  }
+]

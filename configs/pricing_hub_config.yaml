@@ -1,0 +1,39 @@
+version: "1.0.0"
+pricing_hub:
+  environment: "production-simulation"
+  supported_lines_of_business:
+    - "COMMERCIAL"
+    - "MEDICARE"
+    - "MEDICAID"
+  supported_claim_types:
+    - "PROFESSIONAL"  # 837P / CMS-1500
+    - "FACILITY"      # 837I / UB-04
+  excluded_categories:
+    - "VISION"
+    - "DENTAL"
+    - "PHARMACY"
+
+sla_thresholds:
+  outstanding_warning_seconds: 7200    # 2 hours
+  stalled_sla_limit_seconds: 14400     # 4 hours
+  max_variance_tolerance: 0.0001       # 0.01% allowable discrepancy
+  batch_failure_alert_rate: 0.02       # 2% failure rate triggers alert
+
+alerting:
+  channels:
+    - "CONSOLE"
+    - "EVENT_BUS"
+    - "WEBHOOK_SIMULATOR"
+  severity_levels:
+    - "INFO"
+    - "WARNING"
+    - "CRITICAL"
+
+data_directories:
+  contracts: "data/contracts"
+  policies: "data/policies"
+  benefits: "data/benefits"
+  golden_dataset: "data/golden_dataset"
+  mapping_matrix: "data/mapping_matrix"
+  claim_line_dispositions: "data/claim_line_dispositions"
+  integration_tests: "data/integration_tests"

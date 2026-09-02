@@ -1,0 +1,83 @@
+{
+  "contract_id": "CTR-COMM-2026",
+  "contract_name": "Regional Commercial Health Network Agreement",
+  "line_of_business": "COMMERCIAL",
+  "provider_npi_list": [
+    "1982730192",
+    "1548291034",
+    "1827391029",
+    "1293840192",
+    "1992830111"
+  ],
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "fee_schedule": {
+    "99203": 150.0,
+    "99204": 210.0,
+    "99213": 120.0,
+    "99214": 165.0,
+    "99215": 225.0,
+    "29881": 1250.0,
+    "29882": 1400.0,
+    "45378": 850.0,
+    "45380": 950.0,
+    "71046": 85.0,
+    "71046-26": 35.0,
+    "71046-TC": 50.0,
+    "93000": 60.0,
+    "93000-26": 25.0,
+    "93000-TC": 35.0,
+    "99000": 0.0,
+    "36415": 15.0
+  },
+  "drg_rules": {
+    "470": {
+      "drg_code": "470",
+      "description": "Major Hip and Knee Joint Replacement w/o MCC",
+      "base_rate": 10500.0,
+      "relative_weight": 1.95,
+      "outlier_threshold": 45000.0,
+      "outlier_marginal_rate": 0.8
+    },
+    "871": {
+      "drg_code": "871",
+      "description": "Septicemia or Severe Sepsis w/o MV >96 Hours w/ MCC",
+      "base_rate": 10500.0,
+      "relative_weight": 1.72,
+      "outlier_threshold": 45000.0,
+      "outlier_marginal_rate": 0.8
+    },
+    "194": {
+      "drg_code": "194",
+      "description": "Simple Pneumonia & Pleurisy w/ CC",
+      "base_rate": 10500.0,
+      "relative_weight": 0.98,
+      "outlier_threshold": 45000.0,
+      "outlier_marginal_rate": 0.8
+    }
+  },
+  "percent_of_charges_rules": [
+    {
+      "category": "Unlisted Surgical / Medical Supplies",
+      "revenue_code_prefix": "0270",
+      "percent_allowable": 0.6
+    },
+    {
+      "category": "Operating Room Services",
+      "revenue_code_prefix": "0360",
+      "percent_allowable": 0.65
+    }
+  ],
+  "per_diem_rates": {
+    "0110": 1800.0,
+    "0200": 3500.0
+  },
+  "contract_clauses": {
+    "Section 3.1": "Professional Fee Schedule: Rates established in Exhibit A govern standard allowable payments.",
+    "Section 4.2": "Inpatient Facility DRG Adjudication: Base rate multiplied by CMS Relative Weight. High cost outliers qualify if total billed exceeds $45,000 threshold, paid at 80% marginal factor.",
+    "Section 5.1": "Multiple Procedure Payment Reduction (MPPR): Primary surgical procedure reimbursed at 100% of fee schedule; secondary and subsequent qualifying surgical procedures reimbursed at 50%.",
+    "Section 6.4": "Diagnostic Splitting: When billed with modifier 26 or TC, allowable splits strictly to professional/technical schedules.",
+    "Section 7.3": "Timely Filing Limit: All claims must be submitted within 90 days of the date of service. Untimely claims are non-reimbursable.",
+    "Section 8.2": "Incidental and Bundled Codes: CPT 99000 (handling) is considered bundled into primary service and is non-payable."
+  }
+}

@@ -1,0 +1,4132 @@
+[
+  {
+    "claim_id": "CLM-COMM-PROF-001",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "E11.9"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 165.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.1 - Standard Fee Schedule"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-002",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "E11.9"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 165.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.1 - Standard Fee Schedule"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-003",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "E11.9"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 165.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.1 - Standard Fee Schedule"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-004",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "E11.9"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 165.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.1 - Standard Fee Schedule"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-005",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "E11.9"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 165.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.1 - Standard Fee Schedule"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-006",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "M23.22",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 6500.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 350.0,
+        "units": 1.0,
+        "modifiers": [
+          "25"
+        ],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "29881",
+        "billed_amount": 3200.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 3,
+        "procedure_code": "29882",
+        "billed_amount": 2950.0,
+        "units": 1.0,
+        "modifiers": [
+          "51"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 2115.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-109, Paragraph 3.2",
+      "PAYER-RP-042, Paragraph 4.1",
+      "Section 5.1 - Multiple Procedure Reductions"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 1250.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 3,
+        "expected_allowable": 700.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "MPPR_SURGICAL",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-007",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "M23.22",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 6500.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 350.0,
+        "units": 1.0,
+        "modifiers": [
+          "25"
+        ],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "29881",
+        "billed_amount": 3200.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 3,
+        "procedure_code": "29882",
+        "billed_amount": 2950.0,
+        "units": 1.0,
+        "modifiers": [
+          "51"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 2115.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-109, Paragraph 3.2",
+      "PAYER-RP-042, Paragraph 4.1",
+      "Section 5.1 - Multiple Procedure Reductions"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 1250.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 3,
+        "expected_allowable": 700.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "MPPR_SURGICAL",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-008",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "M23.22",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 6500.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 350.0,
+        "units": 1.0,
+        "modifiers": [
+          "25"
+        ],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "29881",
+        "billed_amount": 3200.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 3,
+        "procedure_code": "29882",
+        "billed_amount": 2950.0,
+        "units": 1.0,
+        "modifiers": [
+          "51"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 2115.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-109, Paragraph 3.2",
+      "PAYER-RP-042, Paragraph 4.1",
+      "Section 5.1 - Multiple Procedure Reductions"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 1250.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 3,
+        "expected_allowable": 700.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "MPPR_SURGICAL",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-009",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "M23.22",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 6500.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 350.0,
+        "units": 1.0,
+        "modifiers": [
+          "25"
+        ],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "29881",
+        "billed_amount": 3200.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 3,
+        "procedure_code": "29882",
+        "billed_amount": 2950.0,
+        "units": 1.0,
+        "modifiers": [
+          "51"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 2115.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-109, Paragraph 3.2",
+      "PAYER-RP-042, Paragraph 4.1",
+      "Section 5.1 - Multiple Procedure Reductions"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 1250.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 3,
+        "expected_allowable": 700.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "MPPR_SURGICAL",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-010",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "M23.22",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 6500.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 350.0,
+        "units": 1.0,
+        "modifiers": [
+          "25"
+        ],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "29881",
+        "billed_amount": 3200.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 3,
+        "procedure_code": "29882",
+        "billed_amount": 2950.0,
+        "units": 1.0,
+        "modifiers": [
+          "51"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 2115.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-109, Paragraph 3.2",
+      "PAYER-RP-042, Paragraph 4.1",
+      "Section 5.1 - Multiple Procedure Reductions"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 165.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 1250.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 3,
+        "expected_allowable": 700.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "MPPR_SURGICAL",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-011",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "R05.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 180.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "71046",
+        "billed_amount": 180.0,
+        "units": 1.0,
+        "modifiers": [
+          "26"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 35.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 6.4 - Diagnostic Splitting"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 35.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-012",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "R05.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 180.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "71046",
+        "billed_amount": 180.0,
+        "units": 1.0,
+        "modifiers": [
+          "26"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 35.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 6.4 - Diagnostic Splitting"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 35.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-013",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "R05.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 180.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "71046",
+        "billed_amount": 180.0,
+        "units": 1.0,
+        "modifiers": [
+          "26"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 35.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 6.4 - Diagnostic Splitting"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 35.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-014",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "R05.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 180.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "71046",
+        "billed_amount": 180.0,
+        "units": 1.0,
+        "modifiers": [
+          "26"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 35.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 6.4 - Diagnostic Splitting"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 35.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-015",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "R05.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 180.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "71046",
+        "billed_amount": 180.0,
+        "units": 1.0,
+        "modifiers": [
+          "26"
+        ],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 35.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 6.4 - Diagnostic Splitting"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 35.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-016",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "E11.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "36415",
+        "billed_amount": 25.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "99000",
+        "billed_amount": 30.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 15.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-018, Paragraph 5.1"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 15.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "BUNDLED_PACKAGE",
+        "denial_carc": "CO-97"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-017",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "E11.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "36415",
+        "billed_amount": 25.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "99000",
+        "billed_amount": 30.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 15.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-018, Paragraph 5.1"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 15.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "BUNDLED_PACKAGE",
+        "denial_carc": "CO-97"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-018",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "E11.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "36415",
+        "billed_amount": 25.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "99000",
+        "billed_amount": 30.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 15.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-018, Paragraph 5.1"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 15.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "BUNDLED_PACKAGE",
+        "denial_carc": "CO-97"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-019",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "E11.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "36415",
+        "billed_amount": 25.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "99000",
+        "billed_amount": 30.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 15.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-018, Paragraph 5.1"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 15.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "BUNDLED_PACKAGE",
+        "denial_carc": "CO-97"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-020",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "E11.9",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "36415",
+        "billed_amount": 25.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      },
+      {
+        "line_number": 2,
+        "procedure_code": "99000",
+        "billed_amount": 30.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 15.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "PAYER-RP-018, Paragraph 5.1"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 15.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      },
+      {
+        "line_number": 2,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "BUNDLED_PACKAGE",
+        "denial_carc": "CO-97"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-021",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-06-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "PAYER-RP-003, Paragraph 1.2"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-29"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-022",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-06-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "PAYER-RP-003, Paragraph 1.2"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-29"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-023",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-06-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "PAYER-RP-003, Paragraph 1.2"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-29"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-024",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-06-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "PAYER-RP-003, Paragraph 1.2"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-29"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-PROF-025",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1982730192",
+    "rendering_provider_npi": "1982730192",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-06-01",
+    "total_billed_amount": 250.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 250.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "PAYER-RP-003, Paragraph 1.2"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-29"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-026",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-027",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-028",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-029",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-030",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-031",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-032",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-033",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-034",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-035",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-14",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 35000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 35000.0,
+        "units": 4.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 20475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 20475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-036",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10",
+      "E11.9"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-16",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 55000.0,
+        "units": 6.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 28475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates & Outlier Threshold"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 28475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-037",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10",
+      "E11.9"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-16",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 55000.0,
+        "units": 6.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 28475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates & Outlier Threshold"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 28475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-038",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10",
+      "E11.9"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-16",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 55000.0,
+        "units": 6.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 28475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates & Outlier Threshold"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 28475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-039",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10",
+      "E11.9"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-16",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 55000.0,
+        "units": 6.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 28475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates & Outlier Threshold"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 28475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-040",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10",
+      "E11.9"
+    ],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-16",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 55000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 55000.0,
+        "units": 6.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 28475.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 4.2 - Inpatient Case Rates & Outlier Threshold"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 28475.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-041",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "131",
+    "principal_diagnosis": "K29.00",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 8000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "45378",
+        "revenue_code": "0360",
+        "billed_amount": 8000.0,
+        "units": 1.0,
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 5200.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.2 - Percent of Billed Charges"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 5200.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "PERCENT_OF_CHARGES",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-042",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "131",
+    "principal_diagnosis": "K29.00",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 8000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "45378",
+        "revenue_code": "0360",
+        "billed_amount": 8000.0,
+        "units": 1.0,
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 5200.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.2 - Percent of Billed Charges"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 5200.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "PERCENT_OF_CHARGES",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-043",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "131",
+    "principal_diagnosis": "K29.00",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 8000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "45378",
+        "revenue_code": "0360",
+        "billed_amount": 8000.0,
+        "units": 1.0,
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 5200.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.2 - Percent of Billed Charges"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 5200.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "PERCENT_OF_CHARGES",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-044",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "131",
+    "principal_diagnosis": "K29.00",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 8000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "45378",
+        "revenue_code": "0360",
+        "billed_amount": 8000.0,
+        "units": 1.0,
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 5200.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.2 - Percent of Billed Charges"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 5200.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "PERCENT_OF_CHARGES",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-COMM-FAC-045",
+    "claim_type": "FACILITY",
+    "line_of_business": "COMMERCIAL",
+    "member_id": "MEM-COMM-001",
+    "billing_provider_npi": "1548291034",
+    "rendering_provider_npi": "1548291034",
+    "facility_type_code": "131",
+    "principal_diagnosis": "K29.00",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 8000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "45378",
+        "revenue_code": "0360",
+        "billed_amount": 8000.0,
+        "units": 1.0,
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 5200.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.2 - Percent of Billed Charges"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 5200.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "PERCENT_OF_CHARGES",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-046",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-047",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-048",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-049",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-050",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-051",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-052",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-053",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-054",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-055",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I10",
+    "secondary_diagnoses": [
+      "I25.10"
+    ],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 220.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 220.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 135.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 2.1 - CMS Fee Schedule Parity"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 135.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-056",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I25.10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 45.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 45.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-057",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I25.10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 45.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 45.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-058",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I25.10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 45.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 45.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-059",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I25.10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 45.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 45.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-060",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "I25.10",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 45.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 45.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-061",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "M54.5",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-16"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-062",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "M54.5",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-16"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-063",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "M54.5",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-16"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-064",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "M54.5",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-16"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-PROF-065",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "principal_diagnosis": "M54.5",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 90.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "93000",
+        "billed_amount": 90.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "DENIED",
+    "expected_policy_citations": [
+      "CMS-NCD-220.4, Paragraph 3.1(a)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "DENIED",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": "CO-16"
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-066",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-067",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-068",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-069",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-070",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-071",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-072",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-073",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-074",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-075",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [
+      "I10"
+    ],
+    "admission_date": "2026-01-12",
+    "discharge_date": "2026-01-15",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 28000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 28000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-12"
+      }
+    ],
+    "expected_total_allowable": 14040.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 3.5 - CMS IPPS DRG Methodology"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 14040.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-076",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "I21.09",
+    "secondary_diagnoses": [
+      "I50.9",
+      "N17.9"
+    ],
+    "admission_date": "2026-01-02",
+    "discharge_date": "2026-01-20",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 115000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0200",
+        "billed_amount": 115000.0,
+        "units": 18.0,
+        "drg_code": "871",
+        "service_date": "2026-01-02"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "SUSPENDED",
+    "expected_policy_citations": [
+      "High Dollar Clinical Review Policy (> $100,000 threshold)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "SUSPENDED",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-077",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "I21.09",
+    "secondary_diagnoses": [
+      "I50.9",
+      "N17.9"
+    ],
+    "admission_date": "2026-01-02",
+    "discharge_date": "2026-01-20",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 115000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0200",
+        "billed_amount": 115000.0,
+        "units": 18.0,
+        "drg_code": "871",
+        "service_date": "2026-01-02"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "SUSPENDED",
+    "expected_policy_citations": [
+      "High Dollar Clinical Review Policy (> $100,000 threshold)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "SUSPENDED",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-078",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "I21.09",
+    "secondary_diagnoses": [
+      "I50.9",
+      "N17.9"
+    ],
+    "admission_date": "2026-01-02",
+    "discharge_date": "2026-01-20",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 115000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0200",
+        "billed_amount": 115000.0,
+        "units": 18.0,
+        "drg_code": "871",
+        "service_date": "2026-01-02"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "SUSPENDED",
+    "expected_policy_citations": [
+      "High Dollar Clinical Review Policy (> $100,000 threshold)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "SUSPENDED",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-079",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "I21.09",
+    "secondary_diagnoses": [
+      "I50.9",
+      "N17.9"
+    ],
+    "admission_date": "2026-01-02",
+    "discharge_date": "2026-01-20",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 115000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0200",
+        "billed_amount": 115000.0,
+        "units": 18.0,
+        "drg_code": "871",
+        "service_date": "2026-01-02"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "SUSPENDED",
+    "expected_policy_citations": [
+      "High Dollar Clinical Review Policy (> $100,000 threshold)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "SUSPENDED",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MED-FAC-080",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICARE",
+    "member_id": "MEM-MED-042",
+    "billing_provider_npi": "1649201948",
+    "rendering_provider_npi": "1649201948",
+    "facility_type_code": "111",
+    "principal_diagnosis": "I21.09",
+    "secondary_diagnoses": [
+      "I50.9",
+      "N17.9"
+    ],
+    "admission_date": "2026-01-02",
+    "discharge_date": "2026-01-20",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 115000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0200",
+        "billed_amount": 115000.0,
+        "units": 18.0,
+        "drg_code": "871",
+        "service_date": "2026-01-02"
+      }
+    ],
+    "expected_total_allowable": 0.0,
+    "expected_disposition": "SUSPENDED",
+    "expected_policy_citations": [
+      "High Dollar Clinical Review Policy (> $100,000 threshold)"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 0.0,
+        "expected_disposition": "SUSPENDED",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-081",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-082",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-083",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-084",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-085",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-086",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-087",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-088",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-089",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-PROF-090",
+    "claim_type": "PROFESSIONAL",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "principal_diagnosis": "J45.909",
+    "secondary_diagnoses": [],
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 160.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "99214",
+        "billed_amount": 160.0,
+        "units": 1.0,
+        "modifiers": [],
+        "service_date": "2026-01-15"
+      }
+    ],
+    "expected_total_allowable": 105.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 105.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "FEE_SCHEDULE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-091",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-092",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-093",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-094",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-095",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-096",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-097",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-098",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-099",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-MCD-FAC-100",
+    "claim_type": "FACILITY",
+    "line_of_business": "MEDICAID",
+    "member_id": "MEM-MCD-089",
+    "billing_provider_npi": "1382910492",
+    "rendering_provider_npi": "1382910492",
+    "facility_type_code": "111",
+    "principal_diagnosis": "M16.11",
+    "secondary_diagnoses": [],
+    "admission_date": "2026-01-10",
+    "discharge_date": "2026-01-13",
+    "filing_date": "2026-02-01",
+    "total_billed_amount": 22000.0,
+    "lines": [
+      {
+        "line_number": 1,
+        "procedure_code": "0001",
+        "revenue_code": "0110",
+        "billed_amount": 22000.0,
+        "units": 3.0,
+        "drg_code": "470",
+        "service_date": "2026-01-10"
+      }
+    ],
+    "expected_total_allowable": 11895.0,
+    "expected_disposition": "PAID",
+    "expected_policy_citations": [
+      "Section 1.4 - State Medicaid Fee Base & DRG Rates"
+    ],
+    "line_expectations": [
+      {
+        "line_number": 1,
+        "expected_allowable": 11895.0,
+        "expected_disposition": "PAID",
+        "pricing_methodology": "DRG_CASE_RATE",
+        "denial_carc": null
+      }
+    ]
+  }
+]

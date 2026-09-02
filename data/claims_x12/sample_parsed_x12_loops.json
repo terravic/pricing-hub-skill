@@ -1,0 +1,36 @@
+{
+  "interchange": {
+    "sender": "SUBMITTER1",
+    "receiver": "PRICINGHUB",
+    "control_number": "000000001"
+  },
+  "functional_groups": [
+    {
+      "functional_id": "HC",
+      "version": "005010X222A1"
+    }
+  ],
+  "claim_type": "PROFESSIONAL",
+  "line_of_business": "COMMERCIAL",
+  "member_id": "MEM-COMM-001",
+  "billing_provider_npi": "1982730192",
+  "rendering_provider_npi": "1982730192",
+  "loop_2300": {
+    "claim_id": "CLM-X12-PARSED-001",
+    "total_charge_amount": 250.0,
+    "place_of_service": "11",
+    "principal_diagnosis": "I10"
+  },
+  "loop_2400": [
+    {
+      "line_number": 1,
+      "sv1": {
+        "procedure_code": "99214",
+        "charge_amount": 250.0,
+        "units": 1.0,
+        "modifiers": []
+      },
+      "service_date": "2026-01-15"
+    }
+  ]
+}

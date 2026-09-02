@@ -1,0 +1,25 @@
+{
+  "dataset_name": "Pricing Hub 100-Claim Golden Dataset",
+  "version": "1.0.0",
+  "total_claims": 100,
+  "breakdown": {
+    "commercial_professional": 25,
+    "commercial_facility": 20,
+    "medicare_professional": 20,
+    "medicare_facility": 15,
+    "medicaid_professional": 10,
+    "medicaid_facility": 10
+  },
+  "supported_methodologies": [
+    "FEE_SCHEDULE",
+    "PERCENT_OF_CHARGES",
+    "DRG_CASE_RATE",
+    "MPPR_SURGICAL",
+    "BUNDLED_PACKAGE"
+  ],
+  "disposition_counts": {
+    "PAID": 85,
+    "DENIED": 10,
+    "SUSPENDED": 5
+  }
+}

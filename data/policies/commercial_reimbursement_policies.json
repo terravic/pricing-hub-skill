@@ -1,0 +1,77 @@
+[
+  {
+    "policy_id": "PAYER-RP-042",
+    "policy_title": "Multiple Procedure Payment Reduction (MPPR) for Surgery",
+    "policy_type": "COMMERCIAL_REIMBURSEMENT",
+    "paragraph_id": "Paragraph 4.1",
+    "target_procedure_codes": [
+      "29882",
+      "29881"
+    ],
+    "rule_action": "REDUCE_50",
+    "required_diagnosis_codes": [],
+    "bundled_exclusive_codes": [],
+    "required_modifiers": [
+      "51",
+      "59"
+    ],
+    "citation_text": "Commercial Reimbursement Policy RP-042, Paragraph 4.1: When multiple surgical procedures are performed during the same operative session, the highest-valued procedure is reimbursed at 100% and secondary procedures are reduced by 50%.",
+    "rule_description": "Applies 50% discount to lower-ranked surgical claim lines when performed in conjunction with primary arthroscopy.",
+    "denial_carc": null
+  },
+  {
+    "policy_id": "PAYER-RP-109",
+    "policy_title": "Same-Day Evaluation & Management with Procedure (Modifier -25)",
+    "policy_type": "COMMERCIAL_REIMBURSEMENT",
+    "paragraph_id": "Paragraph 3.2",
+    "target_procedure_codes": [
+      "99213",
+      "99214",
+      "99215"
+    ],
+    "rule_action": "ALLOW",
+    "required_diagnosis_codes": [],
+    "bundled_exclusive_codes": [],
+    "required_modifiers": [
+      "25"
+    ],
+    "citation_text": "Commercial Reimbursement Policy RP-109, Paragraph 3.2: E&M codes billed on the same day as a minor surgical procedure are payable only when appended with Modifier -25 indicating a significant, separately identifiable service.",
+    "rule_description": "Modifier -25 verification for same-day office visit with procedure.",
+    "denial_carc": "CO-16"
+  },
+  {
+    "policy_id": "PAYER-RP-018",
+    "policy_title": "Incidental and Bundled Services Policy",
+    "policy_type": "COMMERCIAL_REIMBURSEMENT",
+    "paragraph_id": "Paragraph 5.1",
+    "target_procedure_codes": [
+      "99000"
+    ],
+    "rule_action": "DENY",
+    "required_diagnosis_codes": [],
+    "bundled_exclusive_codes": [
+      "36415",
+      "99213",
+      "99214"
+    ],
+    "required_modifiers": [],
+    "citation_text": "Commercial Reimbursement Policy RP-018, Paragraph 5.1: CPT 99000 (specimen handling) is an integral component of venipuncture and office encounters. It is bundled and non-reimbursable.",
+    "rule_description": "Automated denial of bundled specimen handling fees under CARC CO-97.",
+    "denial_carc": "CO-97"
+  },
+  {
+    "policy_id": "PAYER-RP-003",
+    "policy_title": "Timely Filing Limit Adjudication Policy",
+    "policy_type": "COMMERCIAL_REIMBURSEMENT",
+    "paragraph_id": "Paragraph 1.2",
+    "target_procedure_codes": [],
+    "rule_action": "DENY",
+    "required_diagnosis_codes": [],
+    "bundled_exclusive_codes": [],
+    "required_modifiers": [],
+    "timely_filing_limit_days": 90,
+    "citation_text": "Commercial Reimbursement Policy RP-003, Paragraph 1.2: Claims submitted past the 90-day contractual timely filing window are denied with CARC CO-29.",
+    "rule_description": "Enforces 90-day submission deadline from the date of service.",
+    "denial_carc": "CO-29"
+  }
+]

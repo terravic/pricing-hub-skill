@@ -1,0 +1,74 @@
+{
+  "contract_id": "CTR-MED-ADV-2026",
+  "contract_name": "National Medicare Advantage Provider Contract",
+  "line_of_business": "MEDICARE",
+  "provider_npi_list": [
+    "1649201948",
+    "1748291034",
+    "1982730192"
+  ],
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "fee_schedule": {
+    "99203": 115.0,
+    "99204": 168.0,
+    "99213": 95.0,
+    "99214": 135.0,
+    "99215": 185.0,
+    "29881": 950.0,
+    "29882": 1050.0,
+    "45378": 650.0,
+    "45380": 730.0,
+    "71046": 65.0,
+    "71046-26": 28.0,
+    "71046-TC": 37.0,
+    "93000": 45.0,
+    "93000-26": 18.0,
+    "93000-TC": 27.0,
+    "99000": 0.0,
+    "36415": 10.0
+  },
+  "drg_rules": {
+    "470": {
+      "drg_code": "470",
+      "description": "Major Hip and Knee Joint Replacement w/o MCC",
+      "base_rate": 7200.0,
+      "relative_weight": 1.95,
+      "outlier_threshold": 40000.0,
+      "outlier_marginal_rate": 0.8
+    },
+    "871": {
+      "drg_code": "871",
+      "description": "Septicemia or Severe Sepsis w/o MV >96 Hours w/ MCC",
+      "base_rate": 7200.0,
+      "relative_weight": 1.72,
+      "outlier_threshold": 40000.0,
+      "outlier_marginal_rate": 0.8
+    },
+    "194": {
+      "drg_code": "194",
+      "description": "Simple Pneumonia & Pleurisy w/ CC",
+      "base_rate": 7200.0,
+      "relative_weight": 0.98,
+      "outlier_threshold": 40000.0,
+      "outlier_marginal_rate": 0.8
+    }
+  },
+  "percent_of_charges_rules": [
+    {
+      "category": "Unlisted Hospital Charges",
+      "revenue_code_prefix": "0270",
+      "percent_allowable": 0.5
+    }
+  ],
+  "per_diem_rates": {
+    "0110": 1350.0,
+    "0200": 2600.0
+  },
+  "contract_clauses": {
+    "Section 2.1": "CMS Fee Schedule Parity: Physician allowable is pegged directly to the CMS MPFS Medicare Advantage rate file.",
+    "Section 3.5": "CMS IPPS DRG Methodology: Inpatient stays reimbursed under CMS Inpatient Prospective Payment System base rates.",
+    "Section 4.1": "CMS MPPR Regulations: Multiple surgical reductions follow CMS Chapter 13 MPFS rules (50% reduction on secondary).",
+    "Section 6.1": "Timely Filing: Medicare Advantage timely filing limit is 365 calendar days from service date."
+  }
+}

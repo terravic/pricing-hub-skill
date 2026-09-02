@@ -1,0 +1,45 @@
+[
+  {
+    "policy_id": "CMS-NCD-220.4",
+    "policy_title": "Diagnostic Ultrasound in Cardiac Procedures",
+    "policy_type": "CMS_NCD",
+    "paragraph_id": "Paragraph 3.1(a)",
+    "target_procedure_codes": [
+      "93000",
+      "93000-26",
+      "93000-TC"
+    ],
+    "rule_action": "ALLOW",
+    "required_diagnosis_codes": [
+      "I25.10",
+      "I50.9",
+      "R07.9",
+      "I10"
+    ],
+    "bundled_exclusive_codes": [],
+    "required_modifiers": [],
+    "citation_text": "CMS National Coverage Determination (NCD) 220.4, Paragraph 3.1(a): Diagnostic cardiac evaluation is covered when primary indication includes atherosclerotic heart disease (I25.10), heart failure (I50.9), or chest pain (R07.9).",
+    "rule_description": "Medical necessity verification for diagnostic electrocardiograms and cardiac ultrasound.",
+    "denial_carc": "CO-16"
+  },
+  {
+    "policy_id": "CMS-LCD-L33587",
+    "policy_title": "Spinal Injections and Pain Interventions",
+    "policy_type": "CMS_LCD",
+    "paragraph_id": "Paragraph 4.2(b)",
+    "target_procedure_codes": [
+      "64490",
+      "64493"
+    ],
+    "rule_action": "ALLOW",
+    "required_diagnosis_codes": [
+      "M54.5",
+      "M47.816"
+    ],
+    "bundled_exclusive_codes": [],
+    "required_modifiers": [],
+    "citation_text": "CMS Local Coverage Determination (LCD) L33587, Paragraph 4.2(b): Interventional spine injections require documented failed conservative therapy and qualifying lumbar radiculopathy diagnosis.",
+    "rule_description": "Facet injection medical necessity and prior authorization guidelines.",
+    "denial_carc": "CO-16"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "MEM-COMM-001": {
+    "member_id": "MEM-COMM-001",
+    "line_of_business": "COMMERCIAL",
+    "plan_name": "Premier Silver PPO 2000",
+    "individual_deductible": 2000.0,
+    "deductible_met": 1500.0,
+    "copay_pcp": 25.0,
+    "copay_specialist": 50.0,
+    "coinsurance_percentage": 0.2,
+    "out_of_pocket_max": 7500.0,
+    "oop_accumulated": 2100.0,
+    "active": true
+  },
+  "MEM-MED-042": {
+    "member_id": "MEM-MED-042",
+    "line_of_business": "MEDICARE",
+    "plan_name": "National Medicare Choice Plus",
+    "individual_deductible": 0.0,
+    "deductible_met": 0.0,
+    "copay_pcp": 0.0,
+    "copay_specialist": 35.0,
+    "coinsurance_percentage": 0.0,
+    "out_of_pocket_max": 3400.0,
+    "oop_accumulated": 450.0,
+    "active": true
+  },
+  "MEM-MCD-089": {
+    "member_id": "MEM-MCD-089",
+    "line_of_business": "MEDICAID",
+    "plan_name": "Community State Health Plan",
+    "individual_deductible": 0.0,
+    "deductible_met": 0.0,
+    "copay_pcp": 0.0,
+    "copay_specialist": 0.0,
+    "coinsurance_percentage": 0.0,
+    "out_of_pocket_max": 0.0,
+    "oop_accumulated": 0.0,
+    "active": true
+  }
+}

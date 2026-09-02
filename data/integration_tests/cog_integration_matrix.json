@@ -1,0 +1,62 @@
+[
+  {
+    "test_id": "COG-TEST-001",
+    "description": "End-to-End Cog Handshake: Commercial Member with Knee Arthroscopy",
+    "member_pick_cog": {
+      "input_member_id": "MEM-COMM-001",
+      "expected_lob": "COMMERCIAL",
+      "expected_plan": "Premier Silver PPO 2000",
+      "eligibility_status": "ACTIVE"
+    },
+    "benefit_cog": {
+      "deductible_remaining": 500.0,
+      "coinsurance_rate": 0.2,
+      "in_network_tier": "TIER_1"
+    },
+    "contract_cog": {
+      "billing_npi": "1982730192",
+      "resolved_contract_id": "CTR-COMM-2026",
+      "pricing_methodology": "FEE_SCHEDULE"
+    },
+    "pricing_cog": {
+      "procedure_code": "29881",
+      "billed_amount": 3500.0,
+      "expected_allowable": 1250.0
+    },
+    "verification_cog": {
+      "expected_allowable": 1250.0,
+      "expected_disposition": "PAID",
+      "rule_citation": "Section 3.1 / Exhibit A"
+    }
+  },
+  {
+    "test_id": "COG-TEST-002",
+    "description": "End-to-End Cog Handshake: Medicare Advantage Inpatient Admission",
+    "member_pick_cog": {
+      "input_member_id": "MEM-MED-042",
+      "expected_lob": "MEDICARE",
+      "expected_plan": "National Medicare Choice Plus",
+      "eligibility_status": "ACTIVE"
+    },
+    "benefit_cog": {
+      "deductible_remaining": 0.0,
+      "copay_amount": 0.0,
+      "in_network_tier": "TIER_1"
+    },
+    "contract_cog": {
+      "billing_npi": "1649201948",
+      "resolved_contract_id": "CTR-MED-ADV-2026",
+      "pricing_methodology": "DRG_CASE_RATE"
+    },
+    "pricing_cog": {
+      "drg_code": "470",
+      "billed_amount": 25000.0,
+      "expected_allowable": 14040.0
+    },
+    "verification_cog": {
+      "expected_allowable": 14040.0,
+      "expected_disposition": "PAID",
+      "rule_citation": "Section 3.5 / CMS IPPS"
+    }
+  }
+]

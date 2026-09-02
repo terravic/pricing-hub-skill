@@ -1,0 +1,73 @@
+{
+  "contract_id": "CTR-MCD-MCO-2026",
+  "contract_name": "Community Medicaid Managed Care Agreement",
+  "line_of_business": "MEDICAID",
+  "provider_npi_list": [
+    "1382910492",
+    "1982730192",
+    "1182739401"
+  ],
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "fee_schedule": {
+    "99203": 90.0,
+    "99204": 130.0,
+    "99213": 75.0,
+    "99214": 105.0,
+    "99215": 145.0,
+    "29881": 780.0,
+    "29882": 880.0,
+    "45378": 520.0,
+    "45380": 590.0,
+    "71046": 50.0,
+    "71046-26": 20.0,
+    "71046-TC": 30.0,
+    "93000": 35.0,
+    "93000-26": 15.0,
+    "93000-TC": 20.0,
+    "99000": 0.0,
+    "36415": 8.0
+  },
+  "drg_rules": {
+    "470": {
+      "drg_code": "470",
+      "description": "Major Hip and Knee Joint Replacement w/o MCC",
+      "base_rate": 6100.0,
+      "relative_weight": 1.95,
+      "outlier_threshold": 35000.0,
+      "outlier_marginal_rate": 0.75
+    },
+    "871": {
+      "drg_code": "871",
+      "description": "Septicemia or Severe Sepsis w/o MV >96 Hours w/ MCC",
+      "base_rate": 6100.0,
+      "relative_weight": 1.72,
+      "outlier_threshold": 35000.0,
+      "outlier_marginal_rate": 0.75
+    },
+    "194": {
+      "drg_code": "194",
+      "description": "Simple Pneumonia & Pleurisy w/ CC",
+      "base_rate": 6100.0,
+      "relative_weight": 0.98,
+      "outlier_threshold": 35000.0,
+      "outlier_marginal_rate": 0.75
+    }
+  },
+  "percent_of_charges_rules": [
+    {
+      "category": "Medicaid Supplies",
+      "revenue_code_prefix": "0270",
+      "percent_allowable": 0.45
+    }
+  ],
+  "per_diem_rates": {
+    "0110": 1100.0,
+    "0200": 2100.0
+  },
+  "contract_clauses": {
+    "Section 1.4": "State Medicaid Fee Base: Reimbursed in accordance with the State Department of Health Fee Schedule.",
+    "Section 2.3": "Prior Authorization Required: Select surgical procedures require documented state prior authorization.",
+    "Section 3.2": "Timely Filing: Medicaid claims must be filed within 180 calendar days of service."
+  }
+}
