@@ -34,13 +34,25 @@ The **Pricing Hub Skill** provides an end-to-end autonomous capability for inges
 ## 2. Core Workflow & Runbook
 
 > [!IMPORTANT]
-> **MANDATORY POST-PROCESSING DIRECTIVE: DASHBOARD AS PRIMARY SKILL OUTPUT**
-> Whenever you process ANY user request (e.g., ingesting a contract or policy, pricing an X12 claim, running golden dataset parity, or monitoring loads):
-> 1. **Process the Task**: Ingest the file, parse the data, calculate allowable amounts, or run verification.
-> 2. **Generate Dashboard Output**: You MUST generate the dashboard output file by calling `src.ui.dashboard_generator.generate_dashboard()` or running the CLI script. This generates the primary skill output at `output/dashboard.html` and synchronizes `dashboard.html`:
->    ```bash
->    python3 -c "from src.ui.dashboard_generator import generate_dashboard; generate_dashboard(task_type='ingestion')"
+> **UNIVERSAL ADAPTABILITY & MANDATORY DASHBOARD GENERATION FOR ANY INQUIRY**
+> Do NOT lock into only the 11 documented example tasks. The user may ask **any question** related to healthcare pricing, adjudication, policy interpretation, or multi-cog architecture, and may provide **unseen input files** (e.g., custom `.x12` claims, proprietary contract PDFs, custom state fee schedules, or accumulator JSONs).
+>
+> **For ANY request, question, or input file:**
+> 1. **Execute the Processing & Analysis**:
+>    - If unseen contract or policy files are provided, ingest and validate them using `ContractParser` or `PolicyParser`.
+>    - If unseen claim files are provided (.x12 / .edi / .json), parse, validate scope, and adjudicate them using `X12ClaimLoader` and `PricingEngine`.
+>    - If conceptual questions or calculations are asked, resolve them using domain models and active contract rules.
+> 2. **Generate Dashboard Output Adapted to the Specific Inquiry**:
+>    You MUST ALWAYS generate and adapt the interactive dashboard reflecting the user's specific question, unseen file, or analysis:
+>    ```python
+>    from src.ui.dashboard_generator import generate_dashboard
+>    generate_dashboard(
+>        task_type="pricing",          # "ingestion", "pricing", "verification", "monitoring", "cogs"
+>        query_title="User Question",  # Specific user inquiry or topic
+>        input_file="path/to/file",     # If user provided a custom file
+>    )
 >    ```
+>    This writes the primary skill output to `output/dashboard.html` and synchronizes `dashboard.html`.
 > 3. **Interactive Artifact Harness Output**:
 >    If you are running in an agent harness that provides an artifact creation tool (such as `write_to_file` in the conversation artifact directory):
 >    - You MUST create or update the dashboard artifact file `dashboard.html` with `UserFacing: true` containing the contents of `output/dashboard.html`.
@@ -55,7 +67,7 @@ The **Pricing Hub Skill** provides an end-to-end autonomous capability for inges
 >    ```
 >    Explain what the user can visually inspect in the adapted dashboard view.
 >
-> **Do not finish any task without generating `output/dashboard.html` as a primary skill output and presenting the clickable and copyable links to the user.**
+> **Do not finish ANY inquiry without generating `output/dashboard.html` as a primary skill output and presenting the clickable and copyable links to the user.**
 
 ### Step 1: Contract and Policy Ingestion
 Ingest contracts, rate cards, and clinical reimbursement policies from the repository:

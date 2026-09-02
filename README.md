@@ -70,7 +70,7 @@ Instead of issuing generic failure messages, the skill identifies the precise ro
 
 ## Core Skill Tasks & Agent Harness Prompt Examples
 
-An autonomous agent harness can invoke this skill across 11 core operational tasks. Below is each task's description, the local input file in `data/`, a sample prompt to give the agent, and the underlying command executed.
+The 11 tasks below illustrate the skill's primary capabilities and operational prompt templates. However, the skill is **universally adaptable** and is not restricted to only these 11 tasks. Users may ask any ad-hoc question or provide unseen input files (custom contracts, unseen .x12 claims, proprietary fee schedules, or CMS policy memos). For every inquiry or file processed, the skill executes the appropriate parsing or pricing logic and automatically generates an interactive dashboard at `output/dashboard.html` adapted to that specific question.
 
 ### Task 1: Provider Contract Ingestion
 - **Description**: Ingests provider agreements in PDF or JSON format to extract contracted fee schedules, inpatient DRG base rates, percent of charges, and contractual terms.
