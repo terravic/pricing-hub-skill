@@ -68,6 +68,91 @@ Instead of issuing generic failure messages, the skill identifies the precise ro
 
 ---
 
+## Using This Skill in an Agent Harness
+
+An autonomous agent harness can invoke this skill to execute end-to-end pricing ingestion, allowable verification, and migration monitoring. Below are structured execution patterns, prompt templates, and file manifests for common agent workflows.
+
+### 1. Ingestion Pattern: Autonomous Contract Parsing
+When a new provider agreement or fee schedule is uploaded, an agent uses this pattern to parse, validate, and normalize contract terms into active memory.
+
+- **Prompt to Agent**:
+  ```text
+  You are an autonomous pricing engineer. Ingest the provider contract located at data/contracts/commercial_provider_contract.pdf. Extract all contracted fee schedule amounts, DRG case rate base amounts, and contractual clauses (including timely filing limits and MPPR rules). Validate that there are no negative values or overlapping effective dates, and output a structured ingestion summary.
+  ```
+- **Files Loaded for Processing**:
+  - Primary Input: `data/contracts/commercial_provider_contract.pdf` (or `commercial_provider_contract.json`)
+  - Target Rate Cards: `data/contracts/`
+- **Agent Action**:
+  ```bash
+  python3 scripts/run_ingestion.py --contracts-dir data/contracts --policies-dir data/policies
+  ```
+- **Expected Agent Output**: Confirmation of parsed rates (such as CPT 99214 at $165.00, CPT 29881 at $1,250.00, DRG 470 base rate at $10,500.00) and continuous date verification.
+
+### 2. Verification Pattern: Batch Parity and Discrepancy Auditing
+When evaluating a batch of ingested claims against ground truth, the agent adjudicates each claim, checks allowable variance, and produces an auditable Chain-of-Thought report.
+
+- **Prompt to Agent**:
+  ```text
+  Adjudicate the claims in data/golden_dataset/golden_claims_all.json against our active fee schedules and reimbursement policies. Enforce Multiple Procedure Payment Reduction (MPPR) rules on secondary surgical procedures, evaluate split modifiers (-26 and -TC), and verify modifier -25 on same-day evaluation services. Generate an auditable discrepancy report citing exact policy paragraphs for any non-concordant claims.
+  ```
+- **Files Loaded for Processing**:
+  - Input Claims: `data/golden_dataset/golden_claims_all.json`
+  - Cross-Reference Rules: `data/mapping_matrix/rule_to_policy_matrix.json`
+  - Reference Policy Documents: `data/policies/cms_lcd_ncd_policies.json` and `data/policies/commercial_reimbursement_policies.json`
+- **Agent Action**:
+  ```bash
+  python3 scripts/run_verification.py --claims-file data/golden_dataset/golden_claims_all.json
+  ```
+- **Expected Agent Output**: Batch verification summary reporting 100/100 claims concordant, 0.00% variance, total billed ($1,780,875.00), total allowable ($646,750.00), and sample Chain-of-Thought audit trails with paragraph citations.
+
+### 3. Monitoring Pattern: Pipeline Bottleneck Diagnosis and Remediation
+When tracking system migration progress, the agent continuously checks load states, flags stalled pipelines, identifies root causes, and issues remediation directives.
+
+- **Prompt to Agent**:
+  ```text
+  Check the real-time status of all active pricing loads across Commercial, Medicare, and Medicaid. Identify any loads in a STALLED state, analyze the root cause (such as unmapped provider NPIs, date overlaps, or validation variance breaches), estimate projected delay, and output remediation instructions for the operational team.
+  ```
+- **Files Loaded for Processing**:
+  - Configuration Thresholds: `configs/pricing_hub_config.yaml`
+  - Provider Registry and Benefits: `data/benefits/member_benefits_accumulators.json`
+- **Agent Action**:
+  ```bash
+  python3 scripts/monitor_loads.py
+  ```
+- **Expected Agent Output**: Real-time status table showing `LOADED` (1), `OUTSTANDING` (1), `STALLED` (3), along with root-cause diagnostic logs and critical alerts detailing remediation directives.
+
+### 4. Direct Python Programmatic Invocation
+Agents executing Python code in an environment can interface directly with skill components:
+
+```python
+from src.ingestion.contract_parser import ContractParser
+from src.ingestion.policy_parser import PolicyParser
+from src.ingestion.x12_claim_loader import X12ClaimLoader
+from src.pricing_engine.pricing_router import PricingRouter
+
+# 1. Ingest rate cards and policy guidelines
+contract_parser = ContractParser()
+contract_parser.load_directory("data/contracts")
+
+policy_parser = PolicyParser()
+policy_parser.load_directory("data/policies")
+
+# 2. Ingest claims (interoperable with parsed X12 loops)
+claim_loader = X12ClaimLoader()
+claims, rejected, _ = claim_loader.load_claims_file("data/golden_dataset/golden_claims_all.json")
+
+# 3. Adjudicate claim and generate auditable pricing
+router = PricingRouter(contract_parser, policy_parser)
+priced_claim = router.price_claim(claims[0])
+
+print(f"Claim ID: {priced_claim.claim_id}")
+print(f"Total Billed: ${priced_claim.total_billed_amount:,.2f}")
+print(f"Total Allowable: ${priced_claim.total_allowable_amount:,.2f}")
+print(f"Disposition: {priced_claim.overall_disposition.value}")
+```
+
+---
+
 ## Directory Structure
 
 ```text
