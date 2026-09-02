@@ -144,9 +144,9 @@
   <div id="taskExecutionBanner" style="background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--primary); padding: 10px 16px; border-radius: 6px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
     <div>
       <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Active Task Context</span>
-      <div id="taskBannerTitle" style="font-size: 13px; font-weight: 700; color: var(--text-main);">Task: Contract & Reimbursement Policy Ingestion</div>
+      <div id="taskBannerTitle" style="font-size: 13px; font-weight: 700; color: var(--text-main);">Task: Contract & Policy Ingestion Inspector</div>
     </div>
-    <span class="badge badge-success" id="taskBannerBadge">Ingested & Indexed</span>
+    <span class="badge badge-success" id="taskBannerBadge">Rules Loaded</span>
   </div>
 
   <nav class="nav-tabs">
@@ -526,8 +526,8 @@
             <label for="claimSelect">Select Claim to Inspect or Choose Sample File (.x12):</label>
             <select id="claimSelect" onchange="loadClaimItem(this.value, false)">
               <optgroup label="Sample X12 File Streams (.x12)">
-                <option value="837p" selected>sample_837p_professional.x12 (Professional Office Visit - CPT 99214)</option>
-                <option value="837i">sample_837i_facility.x12 (Inpatient Facility Admission - DRG 470)</option>
+                <option value="837p">sample_837p_professional.x12 (Professional Office Visit - CPT 99214)</option>
+                <option value="837i" selected>sample_837i_facility.x12 (Inpatient Facility Admission - DRG 470)</option>
                 <option value="837d">sample_837d_dental_excluded.x12 (Dental Clinic - D0120 Scope Exclusion)</option>
               </optgroup>
               <optgroup label="Golden Dataset Claims">
@@ -1284,7 +1284,7 @@ IEA*1*000000071~`
     }
 
     // Initialize Claim Inspector on page load
-    loadClaimItem('837p', false);
+    loadClaimItem('837i', false);
 
     // Deep linking via URL query parameters or hash (?view=single, ?tab=verification, #x12)
     (function handleDeepLink() {
