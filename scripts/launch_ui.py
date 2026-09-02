@@ -25,7 +25,7 @@ def find_free_port(start_port: int) -> int:
 def main():
     os.chdir(PROJECT_ROOT)
     port = find_free_port(PORT)
-    dashboard_rel = "src/ui/process_inspector.html"
+    dashboard_rel = "src/ui/dashboard.html"
 
     if not os.path.exists(dashboard_rel):
         print(f"Error: Dashboard file not found at {dashboard_rel}")

@@ -72,7 +72,7 @@ python3 scripts/monitor_loads.py
 - **Alert Dispatch**: Emits real-time `CRITICAL` or `WARNING` alerts with actionable remediation steps.
 
 ### Step 4: Interactive Process Inspector Dashboard
-Launch or render the interactive visual inspector (`src/ui/process_inspector.html`) to review each phase of the skill process:
+Launch or render the interactive visual inspector (`src/ui/dashboard.html`) to review each phase of the skill process:
 ```bash
 python3 scripts/launch_ui.py
 ```

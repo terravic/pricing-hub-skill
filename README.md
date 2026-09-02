@@ -206,8 +206,7 @@ pricing-hub-skill/
 │   ├── monitoring/                   # Load tracker, bottleneck analyzer, and alert dispatcher
 │   ├── cogs/                         # Inter-cog pipeline simulators
 │   └── ui/                           # Management and process inspector UI
-│       ├── process_inspector.html    # Interactive process inspector with Light/Dark mode
-│       └── dashboard.html            # Web-based monitoring and verification UI
+│       └── dashboard.html            # Interactive process inspector and dashboard with Light/Dark mode
 ├── scripts/
 │   ├── run_ingestion.py              # Ingests contracts and policies CLI
 │   ├── run_verification.py           # Runs allowable validation on claims CLI
@@ -239,7 +238,7 @@ The skill includes an interactive, zero-dependency visual interface designed for
 - **5. Multi-Cog Flow**: Interactive visualizer tracing payloads across Member, Benefit, Contract, and Pricing engine cogs.
 
 ### Accessing the Interface:
-- **Direct File Access**: Open `src/ui/process_inspector.html` directly in any web browser.
+- **Direct File Access**: Open `src/ui/dashboard.html` directly in any web browser.
 - **Local HTTP Runner**: Run `python3 scripts/launch_ui.py` to serve the interface locally on port 8080.
 
 ---
