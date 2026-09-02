@@ -35,7 +35,7 @@ def generate_dashboard(
     badge_text = "Engine Online"
 
     if claims_file and claims_file.endswith((".x12", ".edi")):
-        target_tab = "tab-x12"
+        target_tab = "tab-verification"
         task_title = f"Task: Single Claim .X12 Ingestion &bull; Target: {claims_file}"
         badge_text = "X12 Processed"
     elif claims_file and "golden" in claims_file:
@@ -90,13 +90,12 @@ def generate_dashboard(
             sample_key = "837i"
         elif "837d" in claims_file or "dental" in claims_file:
             sample_key = "837d"
-        content = re.sub(r'<option value="([0-9a-z]+)" selected>', r'<option value="\1">', content)
+        content = re.sub(r'<option value="([0-9a-zA-Z_-]+)" selected>', r'<option value="\1">', content)
         content = re.sub(rf'<option value="{sample_key}">', rf'<option value="{sample_key}" selected>', content)
         content = re.sub(
-            r'document\.getElementById\(\'x12SampleSelect\'\)\.value',
-            f"'{sample_key}'",
-            content,
-            count=1
+            r"loadClaimItem\('[0-9a-zA-Z_-]+', false\);",
+            f"loadClaimItem('{sample_key}', false);",
+            content
         )
 
     with open(DASHBOARD_PATH, "w", encoding="utf-8") as f:
@@ -110,10 +109,7 @@ def print_dashboard_banner(task_name: str = "Requested Task", claims_file: Optio
     rel_path = "src/ui/dashboard.html"
     view_hint = ""
     if claims_file:
-        if claims_file.endswith((".x12", ".edi")):
-            view_hint = " (Adapted to Tab 6: X12 EDI & JSON Transformer)"
-        elif "golden" in claims_file:
-            view_hint = " (Adapted to Tab 3: Verification Parity)"
+        view_hint = " (Adapted to Tab 3: Verification Parity & Claim Inspector)"
 
     print("\n" + "=" * 65)
     print(f"[+] INTERACTIVE DASHBOARD ADAPTED & READY FOR: {task_name.upper()}")

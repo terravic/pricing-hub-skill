@@ -282,12 +282,11 @@ The skill includes an interactive, zero-dependency visual interface designed for
 ### Automatic Post-Task Dashboard Generation:
 Whenever any skill task finishes (contract ingestion, single claim .x12 parsing, golden dataset parity verification, or pipeline migration monitoring), the skill automatically creates and updates `src/ui/dashboard.html` with the run's data, providing an immediate visual inspection surface.
 - **Light and Dark Mode Toggle**: Persistent theme switcher powered by CSS custom properties, allowing users to alternate between clean enterprise light and dark themes.
-- **1. Ingestion Inspector**: Search and inspect active fee schedules, DRG hospital weights, and CMS LCD/NCD coverage policies.
+- **1. Ingestion Inspector**: Search and inspect active fee schedules, DRG hospital weights, and CMS LCD/NCD coverage policies, with an interactive dual-pane view-only editor displaying raw files (PDF/contract text) side-by-side with structured parsed JSON models.
 - **2. Interactive Adjudicator**: Real-time claims pricing calculator allowing users to test CPT codes, surgical modifier reductions (-51), split diagnostic components (-26 / -TC), bundling edits, and timely filing rules with immediate allowable calculations.
-- **3. Verification Parity Explorer**: Interactive browser for the 100-claim Golden Dataset with filtering by line of business, concordance validation, and expandable step-by-step Chain-of-Thought audit logs.
+- **3. Verification Parity & Claim Inspector**: Interactive browser for the 100-claim Golden Dataset with filtering by line of business, combined with an interactive dual-pane claim workbench displaying raw ANSI ASC X12 EDI streams (.x12 / .edi) side-by-side with normalized structured JSON domain models, live scope gate enforcement, and step-by-step Chain-of-Thought audit logs.
 - **4. Load Pipeline and Bottleneck Resolver**: Visualizes load progression across Loaded, Outstanding, and Stalled states, with an interactive "Resolve and Re-Ingest" simulator to demonstrate unblocking stalled pipelines.
 - **5. Multi-Cog Flow**: Interactive visualizer tracing payloads across Member, Benefit, Contract, and Pricing engine cogs.
-- **6. X12 EDI and JSON Transformer**: Live side-by-side inspection workbench displaying raw ANSI ASC X12 EDI streams (.x12 / .edi) alongside normalized structured JSON domain models, complete with real-time scope gate verification (in-scope vs excluded dental/vision/pharmacy) and allowable price adjudication.
 
 ### Accessing the Interface:
 - **Direct File Access**: Open `src/ui/dashboard.html` directly in any web browser.

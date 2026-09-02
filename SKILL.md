@@ -96,12 +96,11 @@ Upon completing ANY requested task (such as contract ingestion, single .x12 clai
   - In your final response to the user, always provide a clickable relative link to [dashboard.html](src/ui/dashboard.html) along with instructions to inspect the results visually or run `python3 scripts/launch_ui.py`.
 - **Interactive Capabilities in `src/ui/dashboard.html`**:
   - **Light & Dark Mode**: Persistent toggle switch using CSS custom variables.
-  - **1. Ingestion Inspector**: View extracted rate cards, DRG weights, and CMS LCD/NCD citations.
+  - **1. Ingestion Inspector**: Search and inspect active fee schedules, DRG hospital base rates, and CMS policies with an interactive dual-pane view-only editor comparing raw documents (PDF/contract text) side-by-side with normalized parsed JSON domain models.
   - **2. Interactive Adjudicator**: Real-time claim calculator for CPTs, modifiers (-25, -26, -TC, -51), and timely filing rules.
-  - **3. Verification Parity**: Interactive filterable explorer for the 100 Golden Claims with expandable Chain-of-Thought logs.
+  - **3. Verification Parity & Claim Inspector**: Batch parity explorer for the 100 Golden Claims combined with an interactive dual-pane inspector displaying raw ANSI ASC X12 EDI streams (.x12 / .edi) side-by-side with normalized structured JSON domain models, live scope gate evaluation, and step-by-step Chain-of-Thought logs.
   - **4. Load Pipeline & Bottlenecks**: State machine view with interactive "Resolve & Re-Ingest" remediation simulator.
   - **5. Multi-Cog Flow**: Interactive inspection of inter-cog payloads across Member, Benefit, Contract, and Pricing cogs.
-  - **6. X12 EDI & JSON Transformer**: Live side-by-side inspection of raw ANSI ASC X12 EDI streams (.x12 / .edi) and normalized JSON schema models with live scope gate evaluation and allowable calculations.
 
 ---
 
