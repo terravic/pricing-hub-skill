@@ -59,6 +59,11 @@ def main():
     print("INGESTION STATUS: SUCCESSFUL. Ready for Claim Adjudication.")
     print("=================================================================")
 
+    # Automatically create / update dashboard with ingested contracts
+    from src.ui.dashboard_generator import generate_dashboard, print_dashboard_banner
+    generate_dashboard(results=c_results, task_type="ingestion")
+    print_dashboard_banner(task_name="Contract and Policy Ingestion")
+
 
 if __name__ == "__main__":
     main()

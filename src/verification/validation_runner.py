@@ -36,16 +36,36 @@ class ValidationRunner:
     def run_validation(self, claims_file_path: str) -> Dict[str, Any]:
         """Runs batch verification against a claims dataset containing ground-truth expectations."""
         start_time = time.time()
-        with open(claims_file_path, "r") as f:
-            raw_claims = json.load(f)
-
-        if isinstance(raw_claims, dict):
-            raw_claims = [raw_claims]
-
-        total_claims = len(raw_claims)
         passed_claims = 0
         failed_claims = 0
         all_discrepancies: List[ClaimDiscrepancy] = []
+        total_billed = 0.0
+        total_allowable = 0.0
+
+        if claims_file_path.endswith((".x12", ".edi")):
+            loaded_claims, rejected_list, _ = self.claim_loader.load_claims_file(claims_file_path)
+            raw_claims = [c.to_dict() for c in loaded_claims]
+            for rej in rejected_list:
+                failed_claims += 1
+                all_discrepancies.append(ClaimDiscrepancy(
+                    claim_id=rej.get("claim_id", "UNKNOWN"),
+                    line_number=0,
+                    discrepancy_type="SCOPE_REJECTION",
+                    expected_allowable=0.0,
+                    calculated_allowable=0.0,
+                    variance_amount=0.0,
+                    variance_percentage=0.0,
+                    expected_disposition="REJECTED",
+                    calculated_disposition="REJECTED",
+                    root_cause=f"Scope rejection: {rej.get('reason')}",
+                ))
+        else:
+            with open(claims_file_path, "r") as f:
+                raw_claims = json.load(f)
+            if isinstance(raw_claims, dict):
+                raw_claims = [raw_claims]
+
+        total_claims = len(raw_claims) + len(all_discrepancies)
         total_billed = 0.0
         total_allowable = 0.0
 

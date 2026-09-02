@@ -71,18 +71,20 @@ python3 scripts/monitor_loads.py
   - `DEPENDENCY_TIMEOUT`: Processing duration exceeded the 2-hour queue limit.
 - **Alert Dispatch**: Emits real-time `CRITICAL` or `WARNING` alerts with actionable remediation steps.
 
-### Step 4: Interactive Process Inspector Dashboard
-Launch or render the interactive visual inspector (`src/ui/dashboard.html`) to review each phase of the skill process:
-```bash
-python3 scripts/launch_ui.py
-```
-- **Interactive Capabilities**:
+### Step 4: Automatic Dashboard Generation & Interactive Inspector
+Upon completing ANY requested task (such as contract ingestion, single .x12 claim adjudication, golden dataset verification, or pipeline monitoring), the skill automatically creates and updates the unified interactive dashboard at `src/ui/dashboard.html`.
+
+- **Agent Operating Directive**:
+  - Always verify that `src/ui/dashboard.html` is generated/updated upon task completion.
+  - In your final response to the user, always provide a clickable relative link to [dashboard.html](src/ui/dashboard.html) along with instructions to inspect the results visually or run `python3 scripts/launch_ui.py`.
+- **Interactive Capabilities in `src/ui/dashboard.html`**:
   - **Light & Dark Mode**: Persistent toggle switch using CSS custom variables.
   - **1. Ingestion Inspector**: View extracted rate cards, DRG weights, and CMS LCD/NCD citations.
   - **2. Interactive Adjudicator**: Real-time claim calculator for CPTs, modifiers (-25, -26, -TC, -51), and timely filing rules.
   - **3. Verification Parity**: Interactive filterable explorer for the 100 Golden Claims with expandable Chain-of-Thought logs.
   - **4. Load Pipeline & Bottlenecks**: State machine view with interactive "Resolve & Re-Ingest" remediation simulator.
   - **5. Multi-Cog Flow**: Interactive inspection of inter-cog payloads across Member, Benefit, Contract, and Pricing cogs.
+  - **6. X12 EDI & JSON Transformer**: Live side-by-side inspection of raw ANSI ASC X12 EDI streams (.x12 / .edi) and normalized JSON schema models with live scope gate evaluation and allowable calculations.
 
 ---
 

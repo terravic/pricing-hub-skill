@@ -68,61 +68,111 @@ Instead of issuing generic failure messages, the skill identifies the precise ro
 
 ---
 
-## Using This Skill in an Agent Harness
+## Core Skill Tasks & Agent Harness Prompt Examples
 
-An autonomous agent harness can invoke this skill to execute end-to-end pricing ingestion, allowable verification, and migration monitoring. Below are structured execution patterns, prompt templates, and file manifests for common agent workflows.
+An autonomous agent harness can invoke this skill across 11 core operational tasks. Below is each task's description, the local input file in `data/`, a sample prompt to give the agent, and the underlying command executed.
 
-### 1. Ingestion Pattern: Autonomous Contract Parsing
-When a new provider agreement or fee schedule is uploaded, an agent uses this pattern to parse, validate, and normalize contract terms into active memory.
-
-- **Prompt to Agent**:
+### Task 1: Provider Contract Ingestion
+- **Description**: Ingests provider agreements in PDF or JSON format to extract contracted fee schedules, inpatient DRG base rates, percent of charges, and contractual terms.
+- **Input File**: `data/contracts/commercial_provider_contract.pdf` (or `data/contracts/commercial_provider_contract.json`)
+- **Prompt Example**:
   ```text
-  You are an autonomous pricing engineer. Ingest the provider contract located at data/contracts/commercial_provider_contract.pdf. Extract all contracted fee schedule amounts, DRG case rate base amounts, and contractual clauses (including timely filing limits and MPPR rules). Validate that there are no negative values or overlapping effective dates, and output a structured ingestion summary.
+  Ingest the provider contract located at data/contracts/commercial_provider_contract.pdf. Extract all contracted fee schedule amounts, DRG case rate base amounts, and contractual clauses (including timely filing limits and MPPR rules). Validate that there are no negative values or overlapping effective dates, and output a structured ingestion summary.
   ```
-- **Files Loaded for Processing**:
-  - Primary Input: `data/contracts/commercial_provider_contract.pdf` (or `commercial_provider_contract.json`)
-  - Target Rate Cards: `data/contracts/`
-- **Agent Action**:
-  ```bash
-  python3 scripts/run_ingestion.py --contracts-dir data/contracts --policies-dir data/policies
-  ```
-- **Expected Agent Output**: Confirmation of parsed rates (such as CPT 99214 at $165.00, CPT 29881 at $1,250.00, DRG 470 base rate at $10,500.00) and continuous date verification.
+- **Action**: `python3 scripts/run_ingestion.py --contracts-dir data/contracts`
 
-### 2. Verification Pattern: Batch Parity and Discrepancy Auditing
-When evaluating a batch of ingested claims against ground truth, the agent adjudicates each claim, checks allowable variance, and produces an auditable Chain-of-Thought report.
-
-- **Prompt to Agent**:
+### Task 2: CMS & Commercial Reimbursement Policy Ingestion
+- **Description**: Ingests CMS National and Local Coverage Determinations (NCD/LCD) and commercial reimbursement guidelines in PDF or JSON format to extract clinical billing rules.
+- **Input File**: `data/policies/CMS_NCD_220_4_Cardiac_Diagnostic_Ultrasound.pdf` (or `data/policies/commercial_reimbursement_policies.json`)
+- **Prompt Example**:
   ```text
-  Adjudicate the claims in data/golden_dataset/golden_claims_all.json against our active fee schedules and reimbursement policies. Enforce Multiple Procedure Payment Reduction (MPPR) rules on secondary surgical procedures, evaluate split modifiers (-26 and -TC), and verify modifier -25 on same-day evaluation services. Generate an auditable discrepancy report citing exact policy paragraphs for any non-concordant claims.
+  Ingest the CMS reimbursement policy at data/policies/CMS_NCD_220_4_Cardiac_Diagnostic_Ultrasound.pdf and commercial guidelines at data/policies/commercial_reimbursement_policies.json. Extract clinical billing rules, applicable CPT procedure codes, modifier requirements, and paragraph citations for claim adjudication.
   ```
-- **Files Loaded for Processing**:
-  - Input Claims: `data/golden_dataset/golden_claims_all.json`
-  - Cross-Reference Rules: `data/mapping_matrix/rule_to_policy_matrix.json`
-  - Reference Policy Documents: `data/policies/cms_lcd_ncd_policies.json` and `data/policies/commercial_reimbursement_policies.json`
-- **Agent Action**:
-  ```bash
-  python3 scripts/run_verification.py --claims-file data/golden_dataset/golden_claims_all.json
-  ```
-- **Expected Agent Output**: Batch verification summary reporting 100/100 claims concordant, 0.00% variance, total billed ($1,780,875.00), total allowable ($646,750.00), and sample Chain-of-Thought audit trails with paragraph citations.
+- **Action**: `python3 scripts/run_ingestion.py --policies-dir data/policies`
 
-### 3. Monitoring Pattern: Pipeline Bottleneck Diagnosis and Remediation
-When tracking system migration progress, the agent continuously checks load states, flags stalled pipelines, identifies root causes, and issues remediation directives.
-
-- **Prompt to Agent**:
+### Task 3: Single Claim .X12 EDI Ingestion & Parsing
+- **Description**: Ingests individual ANSI ASC X12 EDI files (837P, 837I, 837D) directly, transforming raw loop segments into normalized, structured claim data.
+- **Input File**: `data/claims_x12/sample_837p_professional.x12`
+- **Prompt Example**:
   ```text
-  Check the real-time status of all active pricing loads across Commercial, Medicare, and Medicaid. Identify any loads in a STALLED state, analyze the root cause (such as unmapped provider NPIs, date overlaps, or validation variance breaches), estimate projected delay, and output remediation instructions for the operational team.
+  Ingest and parse the raw EDI claim in data/claims_x12/sample_837p_professional.x12. Parse the X12 loop segments (ST 837, NM1*41 billing provider, NM1*IL subscriber, CLM claim information, and SV1 service lines) into a normalized JSON claim model.
   ```
-- **Files Loaded for Processing**:
-  - Configuration Thresholds: `configs/pricing_hub_config.yaml`
-  - Provider Registry and Benefits: `data/benefits/member_benefits_accumulators.json`
-- **Agent Action**:
-  ```bash
-  python3 scripts/monitor_loads.py
-  ```
-- **Expected Agent Output**: Real-time status table showing `LOADED` (1), `OUTSTANDING` (1), `STALLED` (3), along with root-cause diagnostic logs and critical alerts detailing remediation directives.
+- **Action**: `python3 scripts/run_verification.py --claims-file data/claims_x12/sample_837p_professional.x12`
 
-### 4. Direct Python Programmatic Invocation
-Agents executing Python code in an environment can interface directly with skill components:
+### Task 4: Scope Enforcement Gate Verification
+- **Description**: Automatically intercepts out-of-scope claims (Dental 837D, Pharmacy NCPDP, Vision) before they reach the pricing engine, returning standardized rejection codes.
+- **Input File**: `data/claims_x12/sample_837d_dental_excluded.x12`
+- **Prompt Example**:
+  ```text
+  Evaluate the claim file in data/claims_x12/sample_837d_dental_excluded.x12 against the Pricing Hub scope enforcement gate. If the claim type is out-of-scope (such as Dental, Vision, or Pharmacy), intercept it and return the formal rejection reason code (REJECT_UNSUPPORTED_LOB_EXCLUSION) with CARC CO-16.
+  ```
+- **Action**: `python3 scripts/run_verification.py --claims-file data/claims_x12/sample_837d_dental_excluded.x12`
+
+### Task 5: Multi-Methodology Claim Pricing
+- **Description**: Calculates exact claim-line allowable amounts using Standard Fee Schedules, Inpatient DRG Case Rates with Outlier factors, Percent of Charges, and MPPR Surgical Reductions.
+- **Input File**: `data/claims_x12/sample_837i_facility.x12`
+- **Prompt Example**:
+  ```text
+  Price the inpatient facility claim in data/claims_x12/sample_837i_facility.x12 using the contracted hospital agreement in data/contracts/commercial_provider_contract.json. Match Inpatient DRG 470, multiply the base rate by the CMS relative weight, check whether total billed charges exceed the $45,000 outlier threshold, and output the final allowable amount.
+  ```
+- **Action**: `python3 scripts/run_verification.py --claims-file data/claims_x12/sample_837i_facility.x12`
+
+### Task 6: Clinical Modifier & Payment Edit Adjudication
+- **Description**: Enforces modifier rules including 50% surgical discounts (-51), professional/technical component splits (-26 / -TC), distinct E/M visits (-25), incidental bundling denials (CO-97), and timely filing limits (CO-29).
+- **Input File**: `data/claim_line_dispositions/disposition_test_cases.json`
+- **Prompt Example**:
+  ```text
+  Adjudicate the test cases in data/claim_line_dispositions/disposition_test_cases.json to verify clinical payment edits. Confirm that modifier -51 applies a 50% MPPR reduction on secondary surgical lines, modifier 25 permits distinct E/M evaluation, CPT 99000 denies as incidental bundling (CO-97), and untimely submissions deny with CO-29.
+  ```
+- **Action**: `pytest tests/test_pricing_engine.py -v`
+
+### Task 7: Batch Golden Dataset Parity Verification
+- **Description**: Audits high-volume batches (such as the 100-claim Golden Dataset) against ground-truth benchmarks within a 0.01% tolerance threshold.
+- **Input File**: `data/golden_dataset/golden_claims_all.json`
+- **Prompt Example**:
+  ```text
+  Run batch allowable verification across the 100-claim golden dataset in data/golden_dataset/golden_claims_all.json against active contracts in data/contracts/ and policies in data/policies/. Verify that concordance accuracy achieves 100.0% parity against expected ground truth within the 0.01% tolerance threshold.
+  ```
+- **Action**: `python3 scripts/run_verification.py --claims-file data/golden_dataset/golden_claims_all.json`
+
+### Task 8: Auditable Chain-of-Thought Generation
+- **Description**: Produces a step-by-step pricing explanation for every claim line, citing the exact contract clauses and policy paragraphs that governed the payment.
+- **Input File**: `data/mapping_matrix/rule_to_policy_matrix.json` (with `data/golden_dataset/golden_claims_professional.json`)
+- **Prompt Example**:
+  ```text
+  Adjudicate the professional claims in data/golden_dataset/golden_claims_professional.json and generate an auditable Chain-of-Thought report using the rule-to-policy mapping matrix at data/mapping_matrix/rule_to_policy_matrix.json. Include the exact contract clause, policy identifier, and paragraph citations for every calculated allowable amount.
+  ```
+- **Action**: `python3 scripts/run_verification.py --claims-file data/golden_dataset/golden_claims_professional.json --sample-audit`
+
+### Task 9: Real-Time Load & Bottleneck Monitoring
+- **Description**: Tracks enterprise migration loads across LOADED, OUTSTANDING, and STALLED categories, pinpointing root causes like unmapped provider NPIs or date overlaps and issuing remediation alerts.
+- **Input File**: `configs/pricing_hub_config.yaml` (with `data/benefits/member_benefits_accumulators.json`)
+- **Prompt Example**:
+  ```text
+  Inspect all in-flight pricing loads across Commercial, Medicare, and Medicaid lines of business using thresholds defined in configs/pricing_hub_config.yaml. Flag any loads in a STALLED state, identify the bottleneck root cause (such as unmapped provider NPIs or rate card date overlaps), and generate critical remediation instructions.
+  ```
+- **Action**: `python3 scripts/monitor_loads.py`
+
+### Task 10: Multi-Cog Pipeline Handshake Simulation
+- **Description**: Simulates and validates enterprise inter-cog payload handshakes across Member Eligibility, Benefit Accumulation, Contract Matching, and Claim Pricing.
+- **Input File**: `data/integration_tests/cog_integration_test_file.csv`
+- **Prompt Example**:
+  ```text
+  Simulate an end-to-end multi-cog claim processing pipeline using the integration test records in data/integration_tests/cog_integration_test_file.csv. Validate the data payload handshakes between MemberPickCog, BenefitAccumulatorCog, ContractPickCog, and PricingEngineCog.
+  ```
+- **Action**: `pytest tests/test_cog_integration.py -v`
+
+### Task 11: Interactive Process Inspector Dashboard
+- **Description**: Provides a unified web interface with Light and Dark modes to inspect raw X12 files, test ad-hoc claim calculations, verify batch parity, and remediate pipeline bottlenecks.
+- **Input File**: `src/ui/dashboard.html` (renders data from `data/claims_x12/` and `data/contracts/`)
+- **Prompt Example**:
+  ```text
+  Launch the interactive process inspector dashboard at src/ui/dashboard.html. Allow the user to inspect raw X12 EDI claims, view real-time JSON conversions, test interactive claim pricing scenarios, and simulate bottleneck remediation.
+  ```
+- **Action**: `python3 scripts/launch_ui.py`
+
+### Programmatic Python Invocation Example
+Agents executing Python code directly can invoke skill components programmatically:
 
 ```python
 from src.ingestion.contract_parser import ContractParser
@@ -137,9 +187,9 @@ contract_parser.load_directory("data/contracts")
 policy_parser = PolicyParser()
 policy_parser.load_directory("data/policies")
 
-# 2. Ingest claims (interoperable with parsed X12 loops)
+# 2. Ingest claims (interoperable with raw X12 and parsed loops)
 claim_loader = X12ClaimLoader()
-claims, rejected, _ = claim_loader.load_claims_file("data/golden_dataset/golden_claims_all.json")
+claims, rejected, _ = claim_loader.load_claims_file("data/claims_x12/sample_837p_professional.x12")
 
 # 3. Adjudicate claim and generate auditable pricing
 router = PricingRouter(contract_parser, policy_parser)
@@ -229,13 +279,15 @@ pricing-hub-skill/
 
 The skill includes an interactive, zero-dependency visual interface designed for direct rendering in iframe environments or standalone web browsers.
 
-### Key Visual Elements and Capabilities:
+### Automatic Post-Task Dashboard Generation:
+Whenever any skill task finishes (contract ingestion, single claim .x12 parsing, golden dataset parity verification, or pipeline migration monitoring), the skill automatically creates and updates `src/ui/dashboard.html` with the run's data, providing an immediate visual inspection surface.
 - **Light and Dark Mode Toggle**: Persistent theme switcher powered by CSS custom properties, allowing users to alternate between clean enterprise light and dark themes.
 - **1. Ingestion Inspector**: Search and inspect active fee schedules, DRG hospital weights, and CMS LCD/NCD coverage policies.
 - **2. Interactive Adjudicator**: Real-time claims pricing calculator allowing users to test CPT codes, surgical modifier reductions (-51), split diagnostic components (-26 / -TC), bundling edits, and timely filing rules with immediate allowable calculations.
 - **3. Verification Parity Explorer**: Interactive browser for the 100-claim Golden Dataset with filtering by line of business, concordance validation, and expandable step-by-step Chain-of-Thought audit logs.
 - **4. Load Pipeline and Bottleneck Resolver**: Visualizes load progression across Loaded, Outstanding, and Stalled states, with an interactive "Resolve and Re-Ingest" simulator to demonstrate unblocking stalled pipelines.
 - **5. Multi-Cog Flow**: Interactive visualizer tracing payloads across Member, Benefit, Contract, and Pricing engine cogs.
+- **6. X12 EDI and JSON Transformer**: Live side-by-side inspection workbench displaying raw ANSI ASC X12 EDI streams (.x12 / .edi) alongside normalized structured JSON domain models, complete with real-time scope gate verification (in-scope vs excluded dental/vision/pharmacy) and allowable price adjudication.
 
 ### Accessing the Interface:
 - **Direct File Access**: Open `src/ui/dashboard.html` directly in any web browser.

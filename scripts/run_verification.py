@@ -59,23 +59,25 @@ def main():
         print("\n=================================================================")
         print("          SAMPLE AUDIT TRAIL (CHAIN OF THOUGHT CITATION)         ")
         print("=================================================================\n")
-        with open(args.claims_file, "r") as f:
-            sample_claims = json.load(f)
+        loaded_claims, _, _ = runner.claim_loader.load_claims_file(args.claims_file)
+        if loaded_claims:
+            claim = loaded_claims[5] if len(loaded_claims) > 5 else loaded_claims[0]
+            contract = runner.contract_parser.get_contract_for_provider(claim.billing_provider_npi, lob=claim.line_of_business)
+            policies = list(runner.policy_parser.policies.values())
+            priced = runner.router.price_claim(claim, contract, policies)
 
-        # Pick claim 6 (MPPR multi-surgery with Mod 25)
-        sample_raw = sample_claims[5] if len(sample_claims) > 5 else sample_claims[0]
-        claim, _ = runner.claim_loader.load_claim_from_dict(sample_raw)
-        contract = runner.contract_parser.get_contract_for_provider(claim.billing_provider_npi, lob=claim.line_of_business)
-        policies = list(runner.policy_parser.policies.values())
-        priced = runner.router.price_claim(claim, contract, policies)
-
-        audit_gen = AuditLogGenerator()
-        doc = audit_gen.generate_claim_audit_trail(claim, priced)
-        print(audit_gen.format_markdown_report(doc))
+            audit_gen = AuditLogGenerator()
+            doc = audit_gen.generate_claim_audit_trail(claim, priced)
+            print(audit_gen.format_markdown_report(doc))
 
     print("\n=================================================================")
     print("VERIFICATION COMPLETED.")
     print("=================================================================")
+
+    # Automatically create / update dashboard with results
+    from src.ui.dashboard_generator import generate_dashboard, print_dashboard_banner
+    generate_dashboard(results=results, task_type="verification", claims_file=args.claims_file)
+    print_dashboard_banner(task_name="Allowable Amount Verification", claims_file=args.claims_file)
 
 
 if __name__ == "__main__":

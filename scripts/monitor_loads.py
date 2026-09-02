@@ -91,6 +91,11 @@ def main():
     print("MONITORING CYCLE COMPLETED.")
     print("=================================================================")
 
+    # Automatically create / update dashboard with pipeline monitoring status
+    from src.ui.dashboard_generator import generate_dashboard, print_dashboard_banner
+    generate_dashboard(task_type="monitoring")
+    print_dashboard_banner(task_name="Pipeline Migration Monitoring")
+
 
 if __name__ == "__main__":
     main()

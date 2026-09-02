@@ -23,7 +23,10 @@ class DiscrepancyDetector:
         """Compares a calculated PricedClaim against its ground-truth expectation."""
         discrepancies: List[ClaimDiscrepancy] = []
 
-        expected_total = float(ground_truth.get("expected_total_allowable", 0.0))
+        if "expected_total_allowable" not in ground_truth and "expected_allowable_amount" not in ground_truth:
+            return []
+
+        expected_total = float(ground_truth.get("expected_total_allowable") or ground_truth.get("expected_allowable_amount") or 0.0)
         expected_disp = str(ground_truth.get("expected_disposition", "PAID")).upper()
         calc_disp = calculated.overall_disposition.value
 

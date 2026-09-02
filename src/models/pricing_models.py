@@ -18,6 +18,7 @@ class DiscrepancyType(str, Enum):
     UNEXPECTED_APPROVAL = "UNEXPECTED_APPROVAL"
     DISPOSITION_MISMATCH = "DISPOSITION_MISMATCH"
     MODIFIER_RULE_MISMATCH = "MODIFIER_RULE_MISMATCH"
+    SCOPE_REJECTION = "SCOPE_REJECTION"
 
 
 @dataclass
@@ -94,7 +95,7 @@ class ClaimDiscrepancy:
         return {
             "claim_id": self.claim_id,
             "line_number": self.line_number,
-            "discrepancy_type": self.discrepancy_type.value,
+            "discrepancy_type": getattr(self.discrepancy_type, "value", str(self.discrepancy_type)),
             "expected_allowable": self.expected_allowable,
             "calculated_allowable": self.calculated_allowable,
             "variance_amount": round(self.variance_amount, 2),

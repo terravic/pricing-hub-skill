@@ -145,3 +145,46 @@ def test_combined_integration_matrix_columns():
         assert "expected_allowable" in headers
         rows = list(reader)
         assert len(rows) >= 5
+
+
+def test_single_raw_837p_x12_file_ingestion():
+    loader = X12ClaimLoader()
+    claims, rejected, errs = loader.load_claims_file("data/claims_x12/sample_837p_professional.x12")
+    assert len(errs) == 0
+    assert len(rejected) == 0
+    assert len(claims) == 1
+    c = claims[0]
+    assert c.claim_id == "CLM-COMM-PROF-001"
+    assert c.claim_type == ClaimType.PROFESSIONAL
+    assert c.billing_provider_npi == "1982730192"
+    assert c.member_id == "MEM-COMM-001"
+    assert c.total_billed_amount == 250.00
+    assert len(c.lines) == 1
+    assert c.lines[0].procedure_code == "99214"
+    assert c.lines[0].billed_amount == 250.00
+
+
+def test_single_raw_837i_x12_file_ingestion():
+    loader = X12ClaimLoader()
+    claims, rejected, errs = loader.load_claims_file("data/claims_x12/sample_837i_facility.x12")
+    assert len(errs) == 0
+    assert len(rejected) == 0
+    assert len(claims) == 1
+    c = claims[0]
+    assert c.claim_id == "CLM-COMM-FAC-026"
+    assert c.claim_type == ClaimType.FACILITY
+    assert c.billing_provider_npi == "1548291034"
+    assert c.total_billed_amount == 35000.00
+    assert len(c.lines) == 1
+    assert c.lines[0].revenue_code == "0110"
+
+
+def test_single_raw_837d_x12_file_rejection():
+    loader = X12ClaimLoader()
+    claims, rejected, errs = loader.load_claims_file("data/claims_x12/sample_837d_dental_excluded.x12")
+    assert len(claims) == 0
+    assert len(rejected) == 1
+    assert rejected[0]["claim_id"] == "CLM-DENT-EXCLUDED-01"
+    assert "REJECT_UNSUPPORTED_LOB_EXCLUSION" in rejected[0]["reason"]
+    assert "DENTAL" in rejected[0]["reason"]
+
