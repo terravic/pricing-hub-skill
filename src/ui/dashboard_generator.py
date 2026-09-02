@@ -101,25 +101,33 @@ def generate_dashboard(
     with open(DASHBOARD_PATH, "w", encoding="utf-8") as f:
         f.write(content)
 
+    # Output to primary skill output destination: output/dashboard.html
+    output_dir = os.path.join(PROJECT_ROOT, "output")
+    os.makedirs(output_dir, exist_ok=True)
+    output_dashboard = os.path.join(output_dir, "dashboard.html")
+    with open(output_dashboard, "w", encoding="utf-8") as f:
+        f.write(content)
+
     # Also keep root dashboard.html in sync for direct workspace file access and clicking
     root_dashboard = os.path.join(PROJECT_ROOT, "dashboard.html")
     with open(root_dashboard, "w", encoding="utf-8") as f:
         f.write(content)
 
-    return rel_path
+    return "output/dashboard.html"
 
 
 def print_dashboard_banner(task_name: str = "Requested Task", claims_file: Optional[str] = None):
-    """Prints a standardized banner indicating the dashboard has been adapted and updated."""
-    rel_path = "src/ui/dashboard.html"
+    """Prints a standardized banner indicating the dashboard has been adapted and generated as a skill output."""
     view_hint = ""
     if claims_file:
         view_hint = " (Adapted to Tab 3: Verification Parity & Claim Inspector)"
 
     print("\n" + "=" * 65)
-    print(f"[+] INTERACTIVE DASHBOARD ADAPTED & READY FOR: {task_name.upper()}")
+    print(f"[+] SKILL OUTPUT GENERATED FOR: {task_name.upper()}")
     print("=" * 65)
-    print(f"[*] Dashboard File : {rel_path}{view_hint}")
-    print("[*] Launch Locally : python3 scripts/launch_ui.py")
-    print("[*] Direct Browser : Open src/ui/dashboard.html in any browser")
+    print(f"[*] Primary Skill Output : output/dashboard.html{view_hint}")
+    print(f"[*] Workspace Root File  : dashboard.html")
+    print(f"[*] Source UI Component  : src/ui/dashboard.html")
+    print("[*] Launch Local Server  : python3 scripts/launch_ui.py")
+    print("[*] Copyable URL         : http://localhost:8080/dashboard.html")
     print("=" * 65 + "\n")

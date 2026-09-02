@@ -34,24 +34,28 @@ The **Pricing Hub Skill** provides an end-to-end autonomous capability for inges
 ## 2. Core Workflow & Runbook
 
 > [!IMPORTANT]
-> **MANDATORY POST-PROCESSING DIRECTIVE: DASHBOARD & ARTIFACT GENERATION**
+> **MANDATORY POST-PROCESSING DIRECTIVE: DASHBOARD AS PRIMARY SKILL OUTPUT**
 > Whenever you process ANY user request (e.g., ingesting a contract or policy, pricing an X12 claim, running golden dataset parity, or monitoring loads):
 > 1. **Process the Task**: Ingest the file, parse the data, calculate allowable amounts, or run verification.
-> 2. **Build / Adapt the Dashboard**: You MUST execute the dashboard generator or CLI script to build and adapt `src/ui/dashboard.html` and `dashboard.html` for the task:
+> 2. **Generate Dashboard Output**: You MUST generate the dashboard output file by calling `src.ui.dashboard_generator.generate_dashboard()` or running the CLI script. This generates the primary skill output at `output/dashboard.html` and synchronizes `dashboard.html`:
 >    ```bash
 >    python3 -c "from src.ui.dashboard_generator import generate_dashboard; generate_dashboard(task_type='ingestion')"
 >    ```
-> 3. **Interactive Artifact Harness Integration**:
+> 3. **Interactive Artifact Harness Output**:
 >    If you are running in an agent harness that provides an artifact creation tool (such as `write_to_file` in the conversation artifact directory):
->    - You MUST emit or update the dashboard artifact named `dashboard.html` with `UserFacing: true` copying the contents of `src/ui/dashboard.html`.
->    - This ensures the dashboard renders directly in the agent harness interactive artifact panel so the user can interact with it immediately.
-> 4. **Mandatory Output Content**: Your response to the user MUST always include:
->    - The structured output and answers requested by the user.
->    - Clickable relative links to both [dashboard.html](dashboard.html) and [src/ui/dashboard.html](src/ui/dashboard.html).
->    - An explanation of what can be visually inspected in the adapted dashboard view.
->    - The command to launch the dashboard locally: `python3 scripts/launch_ui.py`.
+>    - You MUST create or update the dashboard artifact file `dashboard.html` with `UserFacing: true` containing the contents of `output/dashboard.html`.
+>    - This ensures the dashboard renders directly as a clickable artifact in the agent harness UI.
+> 4. **Mandatory Output Section in Final Response**:
+>    Your response to the user MUST always conclude with a dedicated **Skill Outputs** section presenting clickable and copyable links to the dashboard:
+>    ```markdown
+>    ### Skill Outputs Generated:
+>    - **Interactive Dashboard File**: [dashboard.html](output/dashboard.html) (or [dashboard.html](dashboard.html))
+>    - **Direct File Path**: `output/dashboard.html`
+>    - **Local Server**: Run `python3 scripts/launch_ui.py` to view at `http://localhost:8080/dashboard.html`
+>    ```
+>    Explain what the user can visually inspect in the adapted dashboard view.
 >
-> **Do not finish a task without building, emitting as an artifact, and linking the interactive UI dashboard.**
+> **Do not finish any task without generating `output/dashboard.html` as a primary skill output and presenting the clickable and copyable links to the user.**
 
 ### Step 1: Contract and Policy Ingestion
 Ingest contracts, rate cards, and clinical reimbursement policies from the repository:

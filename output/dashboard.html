@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Hub - Interactive Process Inspector</title>
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-card-header: #F1F5F9;
+      --bg-input: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-light: #EFF6FF;
+      --success-bg: #DCFCE7;
+      --success-text: #166534;
+      --warning-bg: #FEF9C3;
+      --warning-text: #854D0E;
+      --danger-bg: #FEE2E2;
+      --danger-text: #991B1B;
+      --badge-neutral-bg: #F1F5F9;
+      --badge-neutral-text: #475569;
+      --code-bg: #F1F5F9;
+      --code-text: #0F172A;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0F172A;
+      --bg-card: #1E293B;
+      --bg-card-header: #334155;
+      --bg-input: #0F172A;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #334155;
+      --primary: #3B82F6;
+      --primary-hover: #60A5FA;
+      --primary-light: #1E3A8A;
+      --success-bg: #064E3B;
+      --success-text: #A7F3D0;
+      --warning-bg: #78350F;
+      --warning-text: #FDE68A;
+      --danger-bg: #7F1D1D;
+      --danger-text: #FECACA;
+      --badge-neutral-bg: #334155;
+      --badge-neutral-text: #E2E8F0;
+      --code-bg: #0F172A;
+      --code-text: #93C5FD;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+    body { background-color: var(--bg-page); color: var(--text-main); line-height: 1.5; padding: 20px; transition: background-color 0.2s, color 0.2s; }
+    
+    header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .header-title h1 { font-size: 20px; font-weight: 700; }
+    .header-title p { font-size: 13px; color: var(--text-muted); }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+
+    .theme-toggle-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .theme-toggle-btn:hover { border-color: var(--primary); }
+
+    .nav-tabs { display: flex; gap: 8px; border-bottom: 1px solid var(--border); margin-bottom: 20px; overflow-x: auto; }
+    .tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 8px 16px; font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .stat-card .label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+    .stat-card .value { font-size: 24px; font-weight: 700; color: var(--text-main); }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 20px; }
+    .card-header { font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+    .badge-success { background: var(--success-bg); color: var(--success-text); }
+    .badge-warning { background: var(--warning-bg); color: var(--warning-text); }
+    .badge-danger { background: var(--danger-bg); color: var(--danger-text); }
+    .badge-neutral { background: var(--badge-neutral-bg); color: var(--badge-neutral-text); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 10px 12px; background: var(--bg-card-header); color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:hover { background-color: var(--bg-card-header); }
+
+    .btn { background: var(--primary); color: #FFF; border: none; border-radius: 6px; padding: 8px 16px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+    .btn:hover { background: var(--primary-hover); }
+    .btn-sm { padding: 4px 10px; font-size: 12px; }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--text-muted); }
+    .form-group input, .form-group select { background: var(--bg-input); color: var(--text-main); border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; font-size: 13px; outline: none; }
+    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+
+    .progress-bar-bg { width: 100%; background: var(--border); height: 8px; border-radius: 4px; overflow: hidden; margin-top: 4px; }
+    .progress-bar-fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width 0.4s ease; }
+
+    .diagnostic-item { padding: 14px; border: 1px solid var(--border); border-left: 4px solid #EF4444; border-radius: 6px; margin-bottom: 12px; background: var(--bg-card); display: flex; justify-content: space-between; align-items: center; }
+    .diagnostic-info { max-width: 80%; }
+    .diagnostic-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .diagnostic-desc { font-size: 12px; color: var(--text-muted); }
+
+    .cog-flow { display: flex; align-items: center; justify-content: space-between; gap: 8px; overflow-x: auto; padding: 16px 0; }
+    .cog-node { background: var(--bg-card-header); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; min-width: 180px; text-align: center; cursor: pointer; transition: all 0.2s; }
+    .cog-node.selected { border-color: var(--primary); background: var(--primary-light); }
+    .cog-node .cog-step { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    .cog-node .cog-name { font-size: 14px; font-weight: 700; margin-top: 2px; }
+    .cog-arrow { font-weight: 700; color: var(--text-muted); font-size: 18px; }
+
+    .audit-box { background: var(--code-bg); color: var(--code-text); padding: 12px; border-radius: 6px; font-family: monospace; font-size: 12px; white-space: pre-wrap; margin-top: 10px; border: 1px solid var(--border); }
+
+    .edi-dual-pane { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    @media (max-width: 960px) { .edi-dual-pane { grid-template-columns: 1fr; } }
+    .edi-box { width: 100%; height: 360px; background: var(--code-bg); color: var(--code-text); border: 1px solid var(--border); border-radius: 6px; font-family: monospace; font-size: 12px; padding: 12px; line-height: 1.5; overflow: auto; white-space: pre; resize: vertical; outline: none; }
+    .edi-box:focus { border-color: var(--primary); }
+    .edi-badge-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; font-size: 11px; }
+    .clickable-row { cursor: pointer; transition: all 0.15s ease; }
+    .clickable-row:hover { background-color: var(--primary-light) !important; }
+    .clickable-row.active-row { background-color: var(--primary-light) !important; outline: 2px solid var(--primary); }
+  </style>
+</head>
+<body data-theme="light">
+
+  <header>
+    <div class="header-title">
+      <h1>Pricing Hub: Process Inspector & Control Dashboard</h1>
+      <p>Autonomous Ingestion, Verification Parity, and Real-Time Load Bottleneck Tracking</p>
+    </div>
+    <div class="header-actions">
+      <span class="badge badge-success">Engine Online</span>
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">Dark Mode</button>
+    </div>
+  </header>
+
+  <div id="taskExecutionBanner" style="background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--primary); padding: 10px 16px; border-radius: 6px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Active Task Context</span>
+      <div id="taskBannerTitle" style="font-size: 13px; font-weight: 700; color: var(--text-main);">Task: Contract & Reimbursement Policy Ingestion</div>
+    </div>
+    <span class="badge badge-success" id="taskBannerBadge">Ingested & Indexed</span>
+  </div>
+
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('tab-ingestion')">1. Ingestion Inspector</button>
+    <button class="tab-btn" onclick="switchTab('tab-pricing')">2. Interactive Adjudicator</button>
+    <button class="tab-btn" onclick="switchTab('tab-verification')">3. Verification Parity & Claim Inspector</button>
+    <button class="tab-btn" onclick="switchTab('tab-monitoring')">4. Load Pipeline & Bottlenecks</button>
+    <button class="tab-btn" onclick="switchTab('tab-cogs')">5. Multi-Cog Flow</button>
+  </nav>
+
+  <!-- TAB 1: INGESTION -->
+  <div id="tab-ingestion" class="tab-panel active">
+    <div class="grid-stats">
+      <div class="stat-card">
+        <div class="label">Ingested Contracts</div>
+        <div class="value">3 Rate Cards</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Reimbursement Policies</div>
+        <div class="value">6 Guidelines</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Lines of Business</div>
+        <div class="value">Commercial, Medicare, Medicaid</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Ingestion Health</div>
+        <div class="value" style="color: #16A34A;">100% Validated</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span>Active Contract Rate Cards & Fee Schedules</span>
+        <span class="badge badge-neutral">Normalized Memory Index</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Contract ID</th>
+            <th>Contract Name</th>
+            <th>LOB</th>
+            <th>Effective Dates</th>
+            <th>Primary Method</th>
+            <th>Key Fee Schedule Excerpts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="clickable-row" id="row-CTR-COMM-2026" onclick="loadIngestionItem('CTR-COMM-2026', true)">
+            <td><strong>CTR-COMM-2026</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Regional Commercial Health Network Agreement</td>
+            <td><span class="badge badge-neutral">COMMERCIAL</span></td>
+            <td>2026-01-01 to 2026-12-31</td>
+            <td>Fee Schedule & DRG</td>
+            <td>99214: $165.00 | 29881: $1,250.00 | DRG 470: $10,500.00</td>
+          </tr>
+          <tr class="clickable-row" id="row-CTR-MED-ADV-2026" onclick="loadIngestionItem('CTR-MED-ADV-2026', true)">
+            <td><strong>CTR-MED-ADV-2026</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>National Medicare Advantage Provider Contract</td>
+            <td><span class="badge badge-neutral">MEDICARE</span></td>
+            <td>2026-01-01 to 2026-12-31</td>
+            <td>CMS MPFS Parity</td>
+            <td>99214: $135.00 | 29881: $950.00 | DRG 470: $7,200.00</td>
+          </tr>
+          <tr class="clickable-row" id="row-CTR-MCD-MCO-2026" onclick="loadIngestionItem('CTR-MCD-MCO-2026', true)">
+            <td><strong>CTR-MCD-MCO-2026</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Community Medicaid Managed Care Agreement</td>
+            <td><span class="badge badge-neutral">MEDICAID</span></td>
+            <td>2026-01-01 to 2026-12-31</td>
+            <td>State Fee Schedule</td>
+            <td>99214: $105.00 | 29881: $780.00 | DRG 470: $6,100.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span>CMS & Reimbursement Policy Cross-Reference Index</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Policy ID</th>
+            <th>Policy Title</th>
+            <th>Type</th>
+            <th>Applicable Procedures</th>
+            <th>Core Rule / Paragraph Citation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="clickable-row" id="row-CMS-NCD-220.4" onclick="loadIngestionItem('CMS-NCD-220.4', true)">
+            <td><strong>CMS-NCD-220.4</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Cardiac Diagnostic Ultrasound Indications</td>
+            <td><span class="badge badge-neutral">CMS NCD</span></td>
+            <td>93306, 93307, 93308</td>
+            <td>Paragraph 3.1(a): Covered only with cardiac diagnosis (I25.10, I50.9)</td>
+          </tr>
+          <tr class="clickable-row" id="row-CMS-LCD-L33587" onclick="loadIngestionItem('CMS-LCD-L33587', true)">
+            <td><strong>CMS-LCD-L33587</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Spinal Injections and Interventions</td>
+            <td><span class="badge badge-neutral">CMS LCD</span></td>
+            <td>64483, 64490, 64493</td>
+            <td>Paragraph 4.2(b): Maximum 4 sessions per rolling 12-month period</td>
+          </tr>
+          <tr class="clickable-row" id="row-PAYER-RP-042" onclick="loadIngestionItem('PAYER-RP-042', true)">
+            <td><strong>PAYER-RP-042</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Multiple Procedure Payment Reduction (MPPR)</td>
+            <td><span class="badge badge-neutral">COMMERCIAL</span></td>
+            <td>Surgical Series (10000-69999)</td>
+            <td>Paragraph 4.1: Primary at 100%; secondary/subsequent at 50%</td>
+          </tr>
+          <tr class="clickable-row" id="row-PAYER-RP-109" onclick="loadIngestionItem('PAYER-RP-109', true)">
+            <td><strong>PAYER-RP-109</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Same-Day E&M Services with Modifier -25</td>
+            <td><span class="badge badge-neutral">COMMERCIAL</span></td>
+            <td>99212 - 99215</td>
+            <td>Paragraph 3.2: Separate payment allowed only when modifier 25 present</td>
+          </tr>
+          <tr class="clickable-row" id="row-PAYER-RP-018" onclick="loadIngestionItem('PAYER-RP-018', true)">
+            <td><strong>PAYER-RP-018</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Incidental Specimen Handling Bundling</td>
+            <td><span class="badge badge-neutral">COMMERCIAL</span></td>
+            <td>99000, 99001</td>
+            <td>Paragraph 5.1: Incidental handling bundled into visit (CARC CO-97)</td>
+          </tr>
+          <tr class="clickable-row" id="row-PAYER-RP-003" onclick="loadIngestionItem('PAYER-RP-003', true)">
+            <td><strong>PAYER-RP-003</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>Timely Filing Submission Limit</td>
+            <td><span class="badge badge-neutral">CONTRACTUAL</span></td>
+            <td>All Service Lines</td>
+            <td>Paragraph 1.2: 90 calendar day submission limit (CARC CO-29)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- DUAL-PANE VIEW-ONLY INGESTION INSPECTOR -->
+    <div class="card" id="ingestionInspectorViewer" style="margin-top: 24px; border: 2px solid var(--border);">
+      <div class="card-header">
+        <div>
+          <span style="font-size: 16px; font-weight: 700;">Dual-Pane Document & Parsed Schema Inspector</span>
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Side-by-side comparison of raw input files (PDF/Contract text) and structured JSON domain models used by the skill. Click any table row above or choose from the dropdown.</div>
+        </div>
+        <span class="badge badge-neutral" id="ingestionItemTypeBadge">CONTRACT RATE CARD</span>
+      </div>
+
+      <div class="form-row" style="margin-bottom: 12px; align-items: flex-end;">
+        <div class="form-group" style="flex: 2;">
+          <label for="ingestionSelect">Select Ingested Document / Rate Card:</label>
+          <select id="ingestionSelect" onchange="loadIngestionItem(this.value, false)">
+            <optgroup label="Provider Contracts (PDF / JSON)">
+              <option value="CTR-COMM-2026">CTR-COMM-2026: Regional Commercial Health Network (commercial_provider_contract.pdf)</option>
+              <option value="CTR-MED-ADV-2026">CTR-MED-ADV-2026: National Medicare Advantage Provider Contract (medicare_advantage_contract.pdf)</option>
+              <option value="CTR-MCD-MCO-2026">CTR-MCD-MCO-2026: Community Medicaid Managed Care Agreement (medicaid_managed_care_contract.pdf)</option>
+            </optgroup>
+            <optgroup label="Clinical Reimbursement Policies (PDF / JSON)">
+              <option value="CMS-NCD-220.4">CMS-NCD-220.4: Cardiac Diagnostic Ultrasound (CMS_NCD_220_4_Cardiac_Diagnostic_Ultrasound.pdf)</option>
+              <option value="CMS-LCD-L33587">CMS-LCD-L33587: Spinal Injections and Interventions (CMS_LCD_L33587_Spinal_Injections_Interventions.pdf)</option>
+              <option value="PAYER-RP-042">PAYER-RP-042: Multiple Procedure Payment Reduction - MPPR (PAYER_RP_042_Multiple_Procedure_Payment_Reduction.pdf)</option>
+              <option value="PAYER-RP-109">PAYER-RP-109: Same-Day E&M Modifier -25 Policy (PAYER_RP_109_Same_Day_EM_Modifier_25.pdf)</option>
+              <option value="PAYER-RP-018">PAYER-RP-018: Incidental Specimen Handling Bundling (PAYER_RP_018_Incidental_Bundled_Services.pdf)</option>
+              <option value="PAYER-RP-003">PAYER-RP-003: Timely Filing Submission Limit (PAYER_RP_003_Timely_Filing_Limit.pdf)</option>
+            </optgroup>
+          </select>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-outline" id="copyRawDocBtn" onclick="copyRawDocText()">Copy Raw Text</button>
+          <button class="btn btn-outline" id="copyParsedJsonBtn" onclick="copyParsedJsonText()">Copy Parsed JSON</button>
+        </div>
+      </div>
+
+      <div class="edi-dual-pane">
+        <!-- Left Pane: Raw Document / PDF Extracted Text -->
+        <div>
+          <div class="edi-badge-bar" style="justify-content: space-between; align-items: center;">
+            <div>
+              <span style="font-weight: 700; color: var(--text-main);">Raw File Source (PDF / Document Text):</span>
+              <code id="ingestionRawFileLabel" style="font-size: 11px; margin-left: 6px;">commercial_provider_contract.pdf</code>
+            </div>
+            <span class="badge badge-neutral">Extracted PDF Stream</span>
+          </div>
+          <textarea id="ingestionRawViewer" class="edi-box" readonly spellcheck="false" style="height: 380px;"></textarea>
+        </div>
+
+        <!-- Right Pane: Structured Parsed JSON Model -->
+        <div>
+          <div class="edi-badge-bar" style="justify-content: space-between; align-items: center;">
+            <div>
+              <span style="font-weight: 700; color: var(--text-main);">Structured Domain Model (Parsed JSON):</span>
+              <code id="ingestionJsonFileLabel" style="font-size: 11px; margin-left: 6px;">commercial_provider_contract.json</code>
+            </div>
+            <span class="badge badge-success">Engine Normalized Model</span>
+          </div>
+          <textarea id="ingestionJsonViewer" class="edi-box" readonly spellcheck="false" style="height: 380px;"></textarea>
+        </div>
+      </div>
+
+      <!-- Mapping & Compliance Highlights -->
+      <div id="ingestionMetaBox" style="background: var(--bg-card-header); padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; line-height: 1.6;">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: INTERACTIVE ADJUDICATOR -->
+  <div id="tab-pricing" class="tab-panel">
+    <div class="card">
+      <div class="card-header">
+        <span>Interactive Claim Line Pricing Simulator</span>
+        <span class="badge badge-neutral">Real-Time Evaluation Engine</span>
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+        Test claim adjudication against active contract rules, modifier reductions, split fee components, bundling edits, and timely filing rules.
+      </p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Line of Business</label>
+          <select id="simLob" onchange="runSimulation()">
+            <option value="COMMERCIAL">Commercial</option>
+            <option value="MEDICARE">Medicare Advantage</option>
+            <option value="MEDICAID">Medicaid MCO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Procedure Code (CPT/HCPCS)</label>
+          <select id="simCpt" onchange="runSimulation()">
+            <option value="99214">99214 - Office Visit Level 4</option>
+            <option value="29881">29881 - Knee Arthroscopy Meniscectomy</option>
+            <option value="29882">29882 - Knee Arthroscopy Meniscus Repair</option>
+            <option value="71046">71046 - Chest X-Ray 2 Views</option>
+            <option value="99000">99000 - Specimen Handling (Bundled)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Modifier</label>
+          <select id="simModifier" onchange="runSimulation()">
+            <option value="">None</option>
+            <option value="25">25 - Significant Separately Identifiable E&M</option>
+            <option value="26">26 - Professional Component Only</option>
+            <option value="TC">TC - Technical Component Only</option>
+            <option value="51">51 - Multiple Procedure Surgical (50% Discount)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Billed Amount ($)</label>
+          <input type="number" id="simBilled" value="350.00" oninput="runSimulation()">
+        </div>
+        <div class="form-group">
+          <label>Filing Window</label>
+          <select id="simFiling" onchange="runSimulation()">
+            <option value="TIMELY">Timely (Within 90 Days)</option>
+            <option value="LATE">Untimely (> 90 Days Post-Service)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="simResult" style="padding: 16px; border-radius: 8px; background: var(--bg-card-header); border: 1px solid var(--border);">
+        <!-- Dynamic Result Injected Here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: VERIFICATION PARITY -->
+  <div id="tab-verification" class="tab-panel">
+    <div class="grid-stats">
+      <div class="stat-card">
+        <div class="label">Evaluated Golden Claims</div>
+        <div class="value">100 / 100</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Concordance Accuracy</div>
+        <div class="value" style="color: #16A34A;">100.0% Parity</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Total Billed Charges</div>
+        <div class="value">$1,780,875.00</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Total Allowable</div>
+        <div class="value">$646,750.00</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span>Golden Dataset Adjudication Explorer</span>
+        <div>
+          <select id="filterLob" onchange="filterClaims()" style="background: var(--bg-input); color: var(--text-main); border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; font-size: 12px;">
+            <option value="ALL">All Lines of Business</option>
+            <option value="COMMERCIAL">Commercial</option>
+            <option value="MEDICARE">Medicare</option>
+            <option value="MEDICAID">Medicaid</option>
+          </select>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Claim ID</th>
+            <th>Type</th>
+            <th>LOB</th>
+            <th>Billed</th>
+            <th>Calculated</th>
+            <th>Expected</th>
+            <th>Disposition</th>
+            <th>Status</th>
+            <th>Chain of Thought</th>
+          </tr>
+        </thead>
+        <tbody id="claimsTableBody">
+          <tr class="clickable-row" id="row-CLM-COMM-PROF-001" data-lob="COMMERCIAL" onclick="loadClaimItem('CLM-COMM-PROF-001', true)">
+            <td><strong>CLM-COMM-PROF-001</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>PROFESSIONAL</td>
+            <td><span class="badge badge-neutral">COMMERCIAL</span></td>
+            <td>$250.00</td>
+            <td>$165.00</td>
+            <td>$165.00</td>
+            <td><span class="badge badge-success">PAID</span></td>
+            <td><span class="badge badge-success">Concordant</span></td>
+            <td><button class="btn btn-sm btn-outline" onclick="event.stopPropagation(); loadClaimItem('CLM-COMM-PROF-001', true)">Inspect EDI & JSON</button></td>
+          </tr>
+          <tr class="clickable-row" id="row-CLM-COMM-PROF-006" data-lob="COMMERCIAL" onclick="loadClaimItem('CLM-COMM-PROF-006', true)">
+            <td><strong>CLM-COMM-PROF-006</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>PROFESSIONAL</td>
+            <td><span class="badge badge-neutral">COMMERCIAL</span></td>
+            <td>$6,500.00</td>
+            <td>$2,115.00</td>
+            <td>$2,115.00</td>
+            <td><span class="badge badge-success">PAID</span></td>
+            <td><span class="badge badge-success">Concordant</span></td>
+            <td><button class="btn btn-sm btn-outline" onclick="event.stopPropagation(); loadClaimItem('CLM-COMM-PROF-006', true)">Inspect EDI & JSON</button></td>
+          </tr>
+          <tr class="clickable-row" id="row-CLM-MED-FAC-031" data-lob="MEDICARE" onclick="loadClaimItem('CLM-MED-FAC-031', true)">
+            <td><strong>CLM-MED-FAC-031</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>FACILITY</td>
+            <td><span class="badge badge-neutral">MEDICARE</span></td>
+            <td>$38,000.00</td>
+            <td>$14,400.00</td>
+            <td>$14,400.00</td>
+            <td><span class="badge badge-success">PAID</span></td>
+            <td><span class="badge badge-success">Concordant</span></td>
+            <td><button class="btn btn-sm btn-outline" onclick="event.stopPropagation(); loadClaimItem('CLM-MED-FAC-031', true)">Inspect EDI & JSON</button></td>
+          </tr>
+          <tr class="clickable-row" id="row-CLM-MCD-PROF-071" data-lob="MEDICAID" onclick="loadClaimItem('CLM-MCD-PROF-071', true)">
+            <td><strong>CLM-MCD-PROF-071</strong> <span class="badge badge-neutral" style="font-size: 10px; margin-left: 4px;">Inspect</span></td>
+            <td>PROFESSIONAL</td>
+            <td><span class="badge badge-neutral">MEDICAID</span></td>
+            <td>$125.00</td>
+            <td>$0.00</td>
+            <td>$0.00</td>
+            <td><span class="badge badge-danger">DENIED</span></td>
+            <td><span class="badge badge-success">Concordant</span></td>
+            <td><button class="btn btn-sm btn-outline" onclick="event.stopPropagation(); loadClaimItem('CLM-MCD-PROF-071', true)">Inspect EDI & JSON</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="cotDisplay" style="display: none; margin-top: 14px;">
+        <div style="font-size: 13px; font-weight: 700; margin-bottom: 4px;" id="cotTitle">Chain of Thought Audit Trail</div>
+        <div class="audit-box" id="cotText"></div>
+      </div>
+    </div>
+
+      <!-- DUAL-PANE VIEW-ONLY CLAIM EDI & JSON INSPECTOR -->
+      <div class="card" id="claimInspectorViewer" style="margin-top: 24px; border: 2px solid var(--border);">
+        <div class="card-header">
+          <div>
+            <span style="font-size: 16px; font-weight: 700;">Dual-Pane Claim EDI (.x12) & Structured JSON Inspector</span>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Side-by-side inspection of raw ANSI ASC X12 EDI streams (.x12 / .edi) and normalized structured JSON domain models. Click any claim row above or select from the dropdown.</div>
+          </div>
+          <span class="badge badge-success" id="claimScopeBadge">SCOPE VALIDATED: IN-SCOPE</span>
+        </div>
+
+        <div class="form-row" style="margin-bottom: 12px; align-items: flex-end;">
+          <div class="form-group" style="flex: 2;">
+            <label for="claimSelect">Select Claim to Inspect or Choose Sample File (.x12):</label>
+            <select id="claimSelect" onchange="loadClaimItem(this.value, false)">
+              <optgroup label="Sample X12 File Streams (.x12)">
+                <option value="837p" selected>sample_837p_professional.x12 (Professional Office Visit - CPT 99214)</option>
+                <option value="837i">sample_837i_facility.x12 (Inpatient Facility Admission - DRG 470)</option>
+                <option value="837d">sample_837d_dental_excluded.x12 (Dental Clinic - D0120 Scope Exclusion)</option>
+              </optgroup>
+              <optgroup label="Golden Dataset Claims">
+                <option value="CLM-COMM-PROF-001">CLM-COMM-PROF-001: Commercial Professional Office Visit (CPT 99214)</option>
+                <option value="CLM-COMM-PROF-006">CLM-COMM-PROF-006: Commercial Knee Arthroscopy w/ MPPR 50% Reduction</option>
+                <option value="CLM-MED-FAC-031">CLM-MED-FAC-031: Medicare Inpatient Joint Replacement (DRG 470)</option>
+                <option value="CLM-MCD-PROF-071">CLM-MCD-PROF-071: Medicaid Untimely Filing Denial (CO-29)</option>
+              </optgroup>
+              <option value="custom">-- Custom / Paste Raw X12 Stream --</option>
+            </select>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn" onclick="adjudicateCurrentClaim()">Adjudicate Claim</button>
+            <button class="btn btn-outline" id="copyClaimX12Btn" onclick="copyClaimX12()">Copy Raw X12</button>
+            <button class="btn btn-outline" id="copyClaimJsonBtn" onclick="copyClaimJson()">Copy Structured JSON</button>
+          </div>
+        </div>
+
+        <div class="edi-dual-pane">
+          <!-- LEFT: RAW X12 EDI -->
+          <div>
+            <div class="edi-badge-bar" style="justify-content: space-between; align-items: center;">
+              <div>
+                <span style="font-weight: 700; color: var(--text-main);">Raw ANSI ASC X12 EDI Text (.x12 / .edi):</span>
+                <code id="claimRawFileLabel" style="font-size: 11px; margin-left: 6px;">sample_837p_professional.x12</code>
+              </div>
+              <span class="badge badge-neutral" id="ediFormatBadge">837P (005010X222A1)</span>
+            </div>
+            <div class="edi-badge-bar">
+              <span class="badge badge-neutral">ST*837</span>
+              <span class="badge badge-neutral">BHT</span>
+              <span class="badge badge-neutral">NM1*41 (Billing NPI)</span>
+              <span class="badge badge-neutral">NM1*IL (Member)</span>
+              <span class="badge badge-neutral">CLM (Charge)</span>
+              <span class="badge badge-neutral">SV1/SV2 (Lines)</span>
+            </div>
+            <textarea id="rawX12Input" class="edi-box" spellcheck="false" style="height: 380px;"></textarea>
+          </div>
+
+          <!-- RIGHT: CONVERTED STRUCTURED JSON -->
+          <div>
+            <div class="edi-badge-bar" style="justify-content: space-between; align-items: center;">
+              <div>
+                <span style="font-weight: 700; color: var(--text-main);">Normalized Structured Claim JSON:</span>
+                <code id="claimJsonFileLabel" style="font-size: 11px; margin-left: 6px;">Claim Domain Model</code>
+              </div>
+              <span class="badge badge-success" id="jsonFormatBadge">Valid Schema</span>
+            </div>
+            <div class="edi-badge-bar">
+              <span class="badge badge-neutral">Loop 2000A</span>
+              <span class="badge badge-neutral">Loop 2010AA</span>
+              <span class="badge badge-neutral">Loop 2010BA</span>
+              <span class="badge badge-neutral">Loop 2300</span>
+              <span class="badge badge-neutral">Loop 2400</span>
+            </div>
+            <textarea id="convertedJsonOutput" class="edi-box" readonly spellcheck="false" style="height: 380px;"></textarea>
+          </div>
+        </div>
+
+        <!-- ADJUDICATION & SCOPE EVALUATION PANEL -->
+        <div id="claimEvalPanel" style="padding: 16px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card-header); margin-top: 10px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+  </div>
+
+  <!-- TAB 4: LOAD MONITORING & BOTTLENECK RESOLVER -->
+  <div id="tab-monitoring" class="tab-panel">
+    <div class="grid-stats">
+      <div class="stat-card">
+        <div class="label">Tracked Loads</div>
+        <div class="value">5 Batches</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Loaded (Adjudication Ready)</div>
+        <div class="value" id="countLoaded" style="color: #16A34A;">1</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Outstanding (In-Flight)</div>
+        <div class="value" id="countOutstanding" style="color: #2563EB;">1</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Stalled (Action Needed)</div>
+        <div class="value" id="countStalled" style="color: #DC2626;">3</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span>Pipeline Load Lifecycle & Completion Projections</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Load ID</th>
+            <th>Contract ID</th>
+            <th>LOB</th>
+            <th>Status</th>
+            <th>Adjudication Progress</th>
+            <th>Projected Completion</th>
+          </tr>
+        </thead>
+        <tbody id="loadTableBody">
+          <tr id="row-LOAD-COMM-HMO-01">
+            <td><strong>LOAD-COMM-HMO-01</strong></td>
+            <td>CTR-COMM-2026</td>
+            <td>COMMERCIAL</td>
+            <td><span class="badge badge-success">LOADED</span></td>
+            <td style="width: 200px;">
+              <span class="prog-text">100.0% (1,000 / 1,000)</span>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            </td>
+            <td>Completed</td>
+          </tr>
+          <tr id="row-LOAD-MED-CHOICE-02">
+            <td><strong>LOAD-MED-CHOICE-02</strong></td>
+            <td>CTR-MED-ADV-2026</td>
+            <td>MEDICARE</td>
+            <td><span class="badge badge-warning">OUTSTANDING</span></td>
+            <td style="width: 200px;">
+              <span class="prog-text">60.0% (450 / 750)</span>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+            </td>
+            <td>Active (SLA On Track)</td>
+          </tr>
+          <tr id="row-LOAD-MCD-COMM-03">
+            <td><strong>LOAD-MCD-COMM-03</strong></td>
+            <td>CTR-MCD-MCO-2026</td>
+            <td>MEDICAID</td>
+            <td><span class="badge badge-danger" id="status-LOAD-MCD-COMM-03">STALLED</span></td>
+            <td style="width: 200px;">
+              <span class="prog-text" id="prog-LOAD-MCD-COMM-03">5.0% (25 / 500)</span>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="bar-LOAD-MCD-COMM-03" style="width: 5%; background: #EF4444;"></div></div>
+            </td>
+            <td id="eta-LOAD-MCD-COMM-03">Paused (NPI Unmapped)</td>
+          </tr>
+          <tr id="row-LOAD-COMM-PPO-04">
+            <td><strong>LOAD-COMM-PPO-04</strong></td>
+            <td>CTR-COMM-PPO-2026</td>
+            <td>COMMERCIAL</td>
+            <td><span class="badge badge-danger" id="status-LOAD-COMM-PPO-04">STALLED</span></td>
+            <td style="width: 200px;">
+              <span class="prog-text" id="prog-LOAD-COMM-PPO-04">0.0% (0 / 1,200)</span>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="bar-LOAD-COMM-PPO-04" style="width: 0%; background: #EF4444;"></div></div>
+            </td>
+            <td id="eta-LOAD-COMM-PPO-04">Paused (Date Overlap)</td>
+          </tr>
+          <tr id="row-LOAD-MED-SNP-05">
+            <td><strong>LOAD-MED-SNP-05</strong></td>
+            <td>CTR-MED-SNP-2026</td>
+            <td>MEDICARE</td>
+            <td><span class="badge badge-danger" id="status-LOAD-MED-SNP-05">STALLED</span></td>
+            <td style="width: 200px;">
+              <span class="prog-text" id="prog-LOAD-MED-SNP-05">30.0% (120 / 400)</span>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="bar-LOAD-MED-SNP-05" style="width: 30%; background: #EF4444;"></div></div>
+            </td>
+            <td id="eta-LOAD-MED-SNP-05">Paused (Variance Breach)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span>Stalled Bottleneck Root-Cause Diagnostics & Remediation</span>
+        <span class="badge badge-neutral">Interactive Resolution Simulator</span>
+      </div>
+      <div id="diagnosticsContainer">
+        <div class="diagnostic-item" id="diag-LOAD-MCD-COMM-03">
+          <div class="diagnostic-info">
+            <div class="diagnostic-title">LOAD-MCD-COMM-03: Provider NPI Unmapped in Registry</div>
+            <div class="diagnostic-desc">Contract CTR-MCD-MCO-2026 contains unmapped billing NPIs. Remediation: Map provider NPI to active billing entity in Provider Master Index.</div>
+          </div>
+          <button class="btn btn-sm" onclick="remediateLoad('LOAD-MCD-COMM-03')">Resolve & Re-Ingest</button>
+        </div>
+        <div class="diagnostic-item" id="diag-LOAD-COMM-PPO-04">
+          <div class="diagnostic-info">
+            <div class="diagnostic-title">LOAD-COMM-PPO-04: Rate Card Effective Date Overlap</div>
+            <div class="diagnostic-desc">Schedule dates overlap with an active existing schedule. Remediation: Re-align effective date window boundaries.</div>
+          </div>
+          <button class="btn btn-sm" onclick="remediateLoad('LOAD-COMM-PPO-04')">Resolve & Re-Ingest</button>
+        </div>
+        <div class="diagnostic-item" id="diag-LOAD-MED-SNP-05">
+          <div class="diagnostic-info">
+            <div class="diagnostic-title">LOAD-MED-SNP-05: Validation Variance Quality Breach (> 2%)</div>
+            <div class="diagnostic-desc">Batch failure rate of 5.0% exceeds the 2.0% quality gate. Remediation: Correct modifier and surgical discount configurations.</div>
+          </div>
+          <button class="btn btn-sm" onclick="remediateLoad('LOAD-MED-SNP-05')">Resolve & Re-Ingest</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: MULTI-COG FLOW -->
+  <div id="tab-cogs" class="tab-panel">
+    <div class="card">
+      <div class="card-header">
+        <span>Inter-Cog Orchestration Handshake</span>
+        <span class="badge badge-neutral">Click a Cog to Inspect Handshake Context</span>
+      </div>
+
+      <div class="cog-flow">
+        <div class="cog-node selected" id="node-member" onclick="inspectCog('member')">
+          <div class="cog-step">Step 1</div>
+          <div class="cog-name">Member Pick Cog</div>
+        </div>
+        <div class="cog-arrow">&rarr;</div>
+        <div class="cog-node" id="node-benefit" onclick="inspectCog('benefit')">
+          <div class="cog-step">Step 2</div>
+          <div class="cog-name">Benefit Cog</div>
+        </div>
+        <div class="cog-arrow">&rarr;</div>
+        <div class="cog-node" id="node-contract" onclick="inspectCog('contract')">
+          <div class="cog-step">Step 3</div>
+          <div class="cog-name">Contract Pick Cog</div>
+        </div>
+        <div class="cog-arrow">&rarr;</div>
+        <div class="cog-node" id="node-pricing" onclick="inspectCog('pricing')">
+          <div class="cog-step">Step 4</div>
+          <div class="cog-name">Pricing Engine Cog</div>
+        </div>
+      </div>
+
+      <div id="cogDetailBox" style="margin-top: 16px; padding: 16px; border-radius: 6px; background: var(--bg-card-header); border: 1px solid var(--border);">
+        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;" id="cogDetailTitle">Member Pick Cog</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;" id="cogDetailDesc">
+          Resolves patient eligibility, active line of business (Commercial), and plan identifiers from member demographic registry.
+        </div>
+        <div class="audit-box" id="cogPayload">Input: { "member_id": "MEM-COMM-001" }
+Output: {
+  "member_id": "MEM-COMM-001",
+  "line_of_business": "COMMERCIAL",
+  "plan_name": "Premier Silver PPO 2000",
+  "eligibility_status": "ACTIVE"
+}</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    // Theme Switcher Logic with persistence
+    function toggleTheme() {
+      const current = document.body.getAttribute('data-theme') || 'light';
+      const target = current === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', target);
+      document.getElementById('themeToggleBtn').innerText = target === 'light' ? 'Dark Mode' : 'Light Mode';
+      try { localStorage.setItem('pricing_hub_theme', target); } catch(e) {}
+    }
+
+    // Initialize Theme
+    (function initTheme() {
+      try {
+        const saved = localStorage.getItem('pricing_hub_theme');
+        if (saved) {
+          document.body.setAttribute('data-theme', saved);
+          document.getElementById('themeToggleBtn').innerText = saved === 'light' ? 'Dark Mode' : 'Light Mode';
+        }
+      } catch(e) {}
+    })();
+
+    // Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${tabId}'`)) {
+          b.classList.add('active');
+        }
+      });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) targetPanel.classList.add('active');
+    }
+
+    // Interactive Pricing Simulator
+    function runSimulation() {
+      const lob = document.getElementById('simLob').value;
+      const cpt = document.getElementById('simCpt').value;
+      const mod = document.getElementById('simModifier').value;
+      const billed = parseFloat(document.getElementById('simBilled').value) || 0.0;
+      const filing = document.getElementById('simFiling').value;
+
+      let allowable = 0.0;
+      let disposition = 'PAID';
+      let citation = '';
+      let notes = [];
+
+      // Fee schedule rates by LOB
+      const rates = {
+        'COMMERCIAL': { '99214': 165.0, '29881': 1250.0, '29882': 1400.0, '71046': 85.0, '99000': 0.0 },
+        'MEDICARE': { '99214': 135.0, '29881': 950.0, '29882': 1050.0, '71046': 65.0, '99000': 0.0 },
+        'MEDICAID': { '99214': 105.0, '29881': 780.0, '29882': 880.0, '71046': 50.0, '99000': 0.0 }
+      };
+
+      const baseRate = (rates[lob] && rates[lob][cpt]) || 0.0;
+
+      // Untimely filing check
+      if (filing === 'LATE') {
+        allowable = 0.0;
+        disposition = 'DENIED';
+        citation = 'PAYER-RP-003, Paragraph 1.2; Contractual Timely Filing Limit Exceeded (CARC CO-29)';
+        notes.push('Untimely submission beyond filing window.');
+      } else if (cpt === '99000') {
+        allowable = 0.0;
+        disposition = 'DENIED';
+        citation = 'PAYER-RP-018, Paragraph 5.1; Incidental Specimen Handling Bundled (CARC CO-97)';
+        notes.push('Service is incidental and bundled into primary procedure.');
+      } else {
+        allowable = baseRate;
+        citation = 'Professional Fee Schedule Exhibit A Rate';
+
+        // Modifier adjustments
+        if (mod === '51') {
+          allowable = baseRate * 0.5;
+          citation = 'PAYER-RP-042, Paragraph 4.1; MPPR 50% Secondary Surgical Discount';
+          notes.push('50% Multiple Procedure Reduction applied.');
+        } else if (mod === '26') {
+          allowable = baseRate * 0.4;
+          citation = 'Exhibit A Diagnostic Split Schedule; Modifier 26 Professional Component';
+          notes.push('Reimbursed professional interpretation only.');
+        } else if (mod === 'TC') {
+          allowable = baseRate * 0.6;
+          citation = 'Exhibit A Diagnostic Split Schedule; Modifier TC Technical Component';
+          notes.push('Reimbursed technical facility component only.');
+        } else if (mod === '25') {
+          citation = 'PAYER-RP-109, Paragraph 3.2; Separately Identifiable E&M with Modifier 25';
+          notes.push('Modifier 25 validated for distinct service.');
+        }
+      }
+
+      const isPaid = disposition === 'PAID';
+      const badgeClass = isPaid ? 'badge-success' : 'badge-danger';
+
+      document.getElementById('simResult').innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-weight: 700; font-size: 15px;">Calculation Output</span>
+          <span class="badge ${badgeClass}">${disposition}</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 10px;">
+          <div><span style="font-size: 12px; color: var(--text-muted);">Billed:</span> <strong>$${billed.toFixed(2)}</strong></div>
+          <div><span style="font-size: 12px; color: var(--text-muted);">Allowable:</span> <strong style="color: ${isPaid ? '#16A34A' : '#DC2626'}; font-size: 16px;">$${allowable.toFixed(2)}</strong></div>
+          <div><span style="font-size: 12px; color: var(--text-muted);">Contract Discount:</span> <strong>$${Math.max(0, billed - allowable).toFixed(2)}</strong></div>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted);"><strong style="color: var(--text-main);">Rule Citation:</strong> ${citation}</div>
+        ${notes.length ? `<div style="font-size: 12px; color: var(--primary); margin-top: 4px;"><strong>Engine Audit:</strong> ${notes.join(' ')}</div>` : ''}
+      `;
+    }
+    runSimulation();
+
+    // Filter Claims in Verification Tab
+    function filterClaims() {
+      const val = document.getElementById('filterLob').value;
+      document.querySelectorAll('#claimsTableBody tr').forEach(r => {
+        if (val === 'ALL' || r.getAttribute('data-lob') === val) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    // Show Chain of Thought
+    function showCot(claimId, text) {
+      document.getElementById('cotDisplay').style.display = 'block';
+      document.getElementById('cotTitle').innerText = 'Chain of Thought Audit Trail: ' + claimId;
+      document.getElementById('cotText').innerText = text;
+    }
+
+    // Interactive Load Remediation Simulator
+    let stalledCount = 3;
+    let loadedCount = 1;
+
+    function remediateLoad(loadId) {
+      const diagElem = document.getElementById('diag-' + loadId);
+      if (diagElem) {
+        diagElem.style.opacity = '0.4';
+        diagElem.innerHTML = `
+          <div class="diagnostic-info">
+            <div class="diagnostic-title" style="color: #16A34A;">Remediation Applied: ${loadId}</div>
+            <div class="diagnostic-desc">Parameters corrected. Re-ingestion and parity tests passed. Load transitioned to LOADED.</div>
+          </div>
+          <span class="badge badge-success">RESOLVED</span>
+        `;
+      }
+
+      // Update status row
+      const statusBadge = document.getElementById('status-' + loadId);
+      if (statusBadge) {
+        statusBadge.className = 'badge badge-success';
+        statusBadge.innerText = 'LOADED';
+      }
+
+      const progText = document.getElementById('prog-' + loadId);
+      if (progText) progText.innerText = '100.0% (Completed)';
+
+      const bar = document.getElementById('bar-' + loadId);
+      if (bar) {
+        bar.style.width = '100%';
+        bar.style.background = 'var(--primary)';
+      }
+
+      const eta = document.getElementById('eta-' + loadId);
+      if (eta) eta.innerText = 'Completed';
+
+      stalledCount = Math.max(0, stalledCount - 1);
+      loadedCount += 1;
+      document.getElementById('countStalled').innerText = stalledCount;
+      document.getElementById('countLoaded').innerText = loadedCount;
+    }
+
+    // Cog Handshake Inspection
+    const cogData = {
+      'member': {
+        title: 'Member Pick Cog',
+        desc: 'Resolves patient eligibility, line of business, and enrolled plan identifiers from demographic index.',
+        payload: 'Input: { "member_id": "MEM-COMM-001" }\nOutput: {\n  "member_id": "MEM-COMM-001",\n  "line_of_business": "COMMERCIAL",\n  "plan_name": "Premier Silver PPO 2000",\n  "eligibility_status": "ACTIVE"\n}'
+      },
+      'benefit': {
+        title: 'Benefit Accumulator Cog',
+        desc: 'Calculates active member cost sharing, remaining deductible ($500.00), copays, and provider network tier.',
+        payload: 'Input: { "member_id": "MEM-COMM-001", "service_date": "2026-01-15" }\nOutput: {\n  "individual_deductible": 2000.00,\n  "deductible_remaining": 500.00,\n  "copay_specialist": 50.00,\n  "coinsurance_rate": 0.20,\n  "in_network_tier": "TIER_1"\n}'
+      },
+      'contract': {
+        title: 'Contract Pick Cog',
+        desc: 'Matches billing NPI (1982730192) and Commercial LOB to active agreement CTR-COMM-2026.',
+        payload: 'Input: { "provider_npi": "1982730192", "lob": "COMMERCIAL", "service_date": "2026-01-15" }\nOutput: {\n  "resolved_contract_id": "CTR-COMM-2026",\n  "contract_name": "Regional Commercial Health Network Agreement",\n  "pricing_methodology": "FEE_SCHEDULE"\n}'
+      },
+      'pricing': {
+        title: 'Pricing Engine Cog',
+        desc: 'Adjudicates claim line items against contract fee schedules and policy rules, returning verified allowables.',
+        payload: 'Input: {\n  "claim_id": "COG-TEST-001",\n  "cpt": "29881",\n  "billed_amount": 3500.00,\n  "contract_id": "CTR-COMM-2026"\n}\nOutput: {\n  "allowable_amount": 1250.00,\n  "disposition": "PAID",\n  "rule_citation": "Section 3.1 / Exhibit A Fee Schedule"\n}'
+      }
+    };
+
+    function inspectCog(key) {
+      document.querySelectorAll('.cog-node').forEach(n => n.classList.remove('selected'));
+      document.getElementById('node-' + key).classList.add('selected');
+      const item = cogData[key];
+      document.getElementById('cogDetailTitle').innerText = item.title;
+      document.getElementById('cogDetailDesc').innerText = item.desc;
+      document.getElementById('cogPayload').innerText = item.payload;
+    }
+
+    // Consolidated Claim EDI & JSON Repository
+    const claimsRepository = {
+      '837p': {
+        rawFile: 'sample_837p_professional.x12',
+        ediFormat: '837P (005010X222A1)',
+        rawText: `ISA*00*          *00*          *ZZ*SUBMITTER1     *ZZ*PRICINGHUB     *260115*1200*^*00501*000000001*0*P*:~
+GS*HC*SUBMITTER1*PRICINGHUB*20260115*1200*1*X*005010X222A1~
+ST*837*0001*005010X222A1~
+BHT*0019*00*CLM-COMM-PROF-001*20260115*1200*CH~
+NM1*41*2*REGIONAL MEDICAL GROUP*****XX*1982730192~
+NM1*40*2*PRICING HUB COMMERCIAL*****46*PAYER001~
+HL*1**20*1~
+HL*2*1*22*0~
+NM1*IL*1*MEMBER*ONE****MI*MEM-COMM-001~
+CLM*CLM-COMM-PROF-001*250.00***11:B:1*Y*A*Y*Y~
+HI*BK:I10*BF:E119~
+LX*1~
+SV1*HC:99214*250.00*UN*1***1~
+DTP*472*D8*20260115~
+SE*13*0001~
+GE*1*1~
+IEA*1*000000001~`
+      },
+      '837i': {
+        rawFile: 'sample_837i_facility.x12',
+        ediFormat: '837I Inpatient (005010X223A2)',
+        rawText: `ISA*00*          *00*          *ZZ*HOSPITAL1      *ZZ*PRICINGHUB     *260115*1200*^*00501*000000002*0*P*:~
+GS*HC*HOSPITAL1*PRICINGHUB*20260115*1200*2*X*005010X223A2~
+ST*837*0002*005010X223A2~
+BHT*0019*00*CLM-COMM-FAC-026*20260115*1200*CH~
+NM1*41*2*METROPOLITAN HOSPITAL*****XX*1548291034~
+NM1*40*2*PRICING HUB COMMERCIAL*****46*PAYER001~
+HL*1**20*1~
+HL*2*1*22*0~
+NM1*IL*1*MEMBER*TWO****MI*MEM-COMM-001~
+CLM*CLM-COMM-FAC-026*35000.00***11:A:1*Y*A*Y*Y~
+DTP*435*D8*20260110~
+DTP*096*D8*20260114~
+HI*BK:M1611*BF:I10*DR:470~
+LX*1~
+SV2*0110*HC:0001*35000.00*UN*4~
+DTP*472*RD8*20260110-20260114~
+SE*15*0002~
+GE*1*2~
+IEA*1*000000002~`
+      },
+      '837d': {
+        rawFile: 'sample_837d_dental_excluded.x12',
+        ediFormat: '837D Dental (005010X224A2)',
+        rawText: `ISA*00*          *00*          *ZZ*DENTALCLINIC   *ZZ*PRICINGHUB     *260115*1200*^*00501*000000003*0*P*:~
+GS*HC*DENTALCLINIC*PRICINGHUB*20260115*1200*3*X*005010X224A2~
+ST*837*0003*005010X224A2~
+BHT*0019*00*CLM-DENT-EXCLUDED-01*20260115*1200*CH~
+NM1*41*2*REGIONAL DENTAL CLINIC*****XX*1982730192~
+CLM*CLM-DENT-EXCLUDED-01*85.00***11:A:1*Y*A*Y*Y~
+SV3*AD:D0120*85.00**1~
+SE*7*0003~
+GE*1*3~
+IEA*1*000000003~`
+      },
+      'CLM-COMM-PROF-001': {
+        rawFile: 'CLM-COMM-PROF-001.x12',
+        ediFormat: '837P Professional (Commercial)',
+        rawText: `ISA*00*          *00*          *ZZ*SUBMITTER1     *ZZ*PRICINGHUB     *260115*1200*^*00501*000000001*0*P*:~
+GS*HC*SUBMITTER1*PRICINGHUB*20260115*1200*1*X*005010X222A1~
+ST*837*0001*005010X222A1~
+BHT*0019*00*CLM-COMM-PROF-001*20260115*1200*CH~
+NM1*41*2*REGIONAL MEDICAL GROUP*****XX*1982730192~
+NM1*40*2*PRICING HUB COMMERCIAL*****46*PAYER001~
+HL*1**20*1~
+HL*2*1*22*0~
+NM1*IL*1*MEMBER*ONE****MI*MEM-COMM-001~
+CLM*CLM-COMM-PROF-001*250.00***11:B:1*Y*A*Y*Y~
+HI*BK:I10*BF:E119~
+LX*1~
+SV1*HC:99214*250.00*UN*1***1~
+DTP*472*D8*20260115~
+SE*13*0001~
+GE*1*1~
+IEA*1*000000001~`
+      },
+      'CLM-COMM-PROF-006': {
+        rawFile: 'CLM-COMM-PROF-006.x12',
+        ediFormat: '837P Professional (Commercial)',
+        rawText: `ISA*00*          *00*          *ZZ*SUBMITTER1     *ZZ*PRICINGHUB     *260118*1400*^*00501*000000006*0*P*:~
+GS*HC*SUBMITTER1*PRICINGHUB*20260118*1400*6*X*005010X222A1~
+ST*837*0006*005010X222A1~
+BHT*0019*00*CLM-COMM-PROF-006*20260118*1400*CH~
+NM1*41*2*ORTHOPEDIC SPECIALISTS*****XX*1982730192~
+NM1*40*2*PRICING HUB COMMERCIAL*****46*PAYER001~
+HL*1**20*1~
+HL*2*1*22*0~
+NM1*IL*1*MEMBER*SIX****MI*MEM-COMM-001~
+CLM*CLM-COMM-PROF-006*6500.00***11:B:1*Y*A*Y*Y~
+HI*BK:M2322*BF:M2323~
+LX*1~
+SV1*HC:99214:25*350.00*UN*1***1~
+DTP*472*D8*20260118~
+LX*2~
+SV1*HC:29881*3200.00*UN*1***1~
+DTP*472*D8*20260118~
+LX*3~
+SV1*HC:29882*2950.00*UN*1***1~
+DTP*472*D8*20260118~
+SE*19*0006~
+GE*1*6~
+IEA*1*000000006~`
+      },
+      'CLM-MED-FAC-031': {
+        rawFile: 'CLM-MED-FAC-031.x12',
+        ediFormat: '837I Inpatient (Medicare Advantage)',
+        rawText: `ISA*00*          *00*          *ZZ*SUBMITTER1     *ZZ*PRICINGHUB     *260122*0900*^*00501*000000031*0*P*:~
+GS*HC*SUBMITTER1*PRICINGHUB*20260122*0900*31*X*005010X223A2~
+ST*837*0031*005010X223A2~
+BHT*0019*00*CLM-MED-FAC-031*20260122*0900*CH~
+NM1*41*2*UNIVERSITY HOSPITAL*****XX*1649201948~
+NM1*40*2*PRICING HUB MEDICARE*****46*PAYER001~
+HL*1**20*1~
+HL*2*1*22*0~
+NM1*IL*1*MEMBER*THIRTYONE****MI*MEM-MED-031~
+CLM*CLM-MED-FAC-031*38000.00***11:A:1*Y*A*Y*Y~
+DTP*435*D8*20260112~
+DTP*096*D8*20260117~
+HI*BK:M1611*DR:470~
+LX*1~
+SV2*0110*HC:0001*38000.00*UN*5~
+DTP*472*RD8*20260112-20260117~
+SE*15*0031~
+GE*1*31~
+IEA*1*000000031~`
+      },
+      'CLM-MCD-PROF-071': {
+        rawFile: 'CLM-MCD-PROF-071.x12',
+        ediFormat: '837P Professional (Medicaid)',
+        rawText: `ISA*00*          *00*          *ZZ*SUBMITTER1     *ZZ*PRICINGHUB     *260128*1600*^*00501*000000071*0*P*:~
+GS*HC*SUBMITTER1*PRICINGHUB*20260128*1600*71*X*005010X222A1~
+ST*837*0071*005010X222A1~
+BHT*0019*00*CLM-MCD-PROF-071*20260128*1600*CH~
+NM1*41*2*COMMUNITY HEALTH CENTER*****XX*1382910492~
+NM1*40*2*PRICING HUB MEDICAID*****46*PAYER001~
+HL*1**20*1~
+HL*2*1*22*0~
+NM1*IL*1*MEMBER*SEVENTYONE****MI*MEM-MCD-071~
+CLM*CLM-MCD-PROF-071*125.00***11:B:1*Y*A*Y*Y~
+HI*BK:R059~
+LX*1~
+SV1*HC:99213*125.00*UN*1***1~
+DTP*472*D8*20250610~
+SE*13*0071~
+GE*1*71~
+IEA*1*000000071~`
+      }
+    };
+
+    function loadClaimItem(key, doScroll) {
+      const claim = claimsRepository[key] || claimsRepository['837p'];
+      const rawBox = document.getElementById('rawX12Input');
+      const badge = document.getElementById('ediFormatBadge');
+      const fileLabel = document.getElementById('claimRawFileLabel');
+      const sel = document.getElementById('claimSelect');
+
+      if (sel) sel.value = key;
+      if (claim) {
+        if (rawBox) rawBox.value = claim.rawText;
+        if (badge) badge.innerText = claim.ediFormat;
+        if (fileLabel) fileLabel.innerText = claim.rawFile;
+      }
+
+      // Highlight active table row in claims table
+      document.querySelectorAll('#claimsTableBody .clickable-row').forEach(r => r.classList.remove('active-row'));
+      const row = document.getElementById('row-' + key);
+      if (row) row.classList.add('active-row');
+
+      convertCurrentX12ToJson();
+      adjudicateCurrentClaim();
+
+      if (doScroll) {
+        const viewer = document.getElementById('claimInspectorViewer');
+        if (viewer) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function convertCurrentX12ToJson() {
+      const rawBox = document.getElementById('rawX12Input');
+      if (!rawBox) return;
+      const model = parseX12ToModel(rawBox.value);
+      const jsonOutput = document.getElementById('convertedJsonOutput');
+      if (jsonOutput) jsonOutput.value = JSON.stringify(model, null, 2);
+    }
+
+    function adjudicateCurrentClaim() {
+      const rawBox = document.getElementById('rawX12Input');
+      if (!rawBox) return;
+      const model = parseX12ToModel(rawBox.value);
+      const evalBox = document.getElementById('claimEvalPanel');
+      const scopeBadge = document.getElementById('claimScopeBadge');
+
+      // Scope Gate Intercept
+      if (model.claim_type === 'DENTAL' || model.claim_type === 'VISION' || model.claim_type === 'PHARMACY') {
+        if (scopeBadge) {
+          scopeBadge.className = 'badge badge-danger';
+          scopeBadge.innerText = 'SCOPE ENFORCEMENT: REJECTED';
+        }
+        if (evalBox) {
+          evalBox.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <div style="font-weight: 700; font-size: 14px; color: #DC2626;">SCOPE ENFORCEMENT GATE: REJECTED</div>
+              <span class="badge badge-danger">REJECTED (CARC CO-16)</span>
+            </div>
+            <div style="font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+              <strong>Rejection Reason:</strong> <code>REJECT_UNSUPPORTED_LOB_EXCLUSION: Claim type '${model.claim_type}' is excluded from Pricing Hub processing.</code>
+            </div>
+            <div class="audit-box">Pricing Engine Intercept: Dental/Vision/Pharmacy transactions must be routed to specialized ancillary adjudicators. Billed: $${model.total_billed_amount.toFixed(2)} | Allowable: $0.00</div>
+          `;
+        }
+        return;
+      }
+
+      if (scopeBadge) {
+        scopeBadge.className = 'badge badge-success';
+        scopeBadge.innerText = `SCOPE VALIDATED: IN-SCOPE (${model.line_of_business} ${model.claim_type})`;
+      }
+
+      // Compute Adjudication
+      let allowable = 0.0;
+      let methodology = 'FEE_SCHEDULE';
+      let citation = '';
+      let cotAudit = [];
+      let disposition = 'PAID';
+
+      if (model.claim_id === 'CLM-MCD-PROF-071') {
+        allowable = 0.0;
+        disposition = 'DENIED';
+        methodology = 'TIMELY_FILING_DENIAL';
+        citation = 'PAYER-RP-003, Paragraph 1.2: Medicaid Timely Filing Limit Exceeded (>180 calendar days, CARC CO-29).';
+        cotAudit.push('Service date 2025-06-10 exceeds contractual 180-day window for Medicaid submission. Claim denied under CARC CO-29.');
+      } else if (model.claim_id === 'CLM-COMM-PROF-006') {
+        allowable = 2115.00;
+        methodology = 'MPPR_SURGICAL';
+        citation = 'PAYER-RP-042, Paragraph 4.1; MPPR 50% Surgical Discount on secondary knee arthroscopy 29882.';
+        cotAudit.push('Line 1 (99214 w/ mod 25): $165.00 allowable\nLine 2 (29881 primary surgery): $1,250.00 (100%)\nLine 3 (29882 secondary surgery): $700.00 (50% MPPR discount)');
+      } else if (model.claim_type === 'FACILITY') {
+        methodology = 'DRG_CASE_RATE';
+        if (model.line_of_business === 'MEDICARE') {
+          allowable = 7200.00 * 2.0;
+          citation = 'Medicare Inpatient Prospective Payment System: Base rate $7,200.00 x relative weight 2.0 = $14,400.00.';
+          cotAudit.push(`Matched DRG 470: Base $7,200.00 x 2.0 = $${allowable.toFixed(2)} | Outlier: Billed $${model.total_billed_amount.toFixed(2)} < $40,000 threshold.`);
+        } else {
+          allowable = 10500.00 * 1.95;
+          citation = 'Commercial Inpatient DRG: Base rate $10,500.00 x CMS Relative Weight 1.95 = $20,475.00.';
+          cotAudit.push(`Matched Inpatient DRG 470: Base Rate $10,500.00 x Weight 1.95 = $${allowable.toFixed(2)} | Outlier Factor: None.`);
+        }
+      } else {
+        allowable = 165.00;
+        citation = 'Professional Fee Schedule: Rates established in Exhibit A govern standard allowable payments.';
+        cotAudit.push(`CPT/HCPCS 99214: Base rate $165.00 x 1.0 units = $165.00 | Modifier 25 validated.`);
+      }
+
+      const discount = Math.max(0, model.total_billed_amount - allowable);
+
+      if (evalBox) {
+        evalBox.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div>
+              <span style="font-weight: 700; font-size: 14px; color: ${disposition === 'PAID' ? '#16A34A' : '#DC2626'};">ADJUDICATION: ${disposition}</span>
+              <span style="font-size: 12px; color: var(--text-muted); margin-left: 8px;">Claim ID: <strong>${model.claim_id}</strong> | Provider NPI: <strong>${model.billing_provider_npi}</strong></span>
+            </div>
+            <span class="badge ${disposition === 'PAID' ? 'badge-success' : 'badge-danger'}">${disposition}</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 12px;">
+            <div style="background: var(--bg-card); padding: 10px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Total Billed</div>
+              <div style="font-size: 18px; font-weight: 700;">$${model.total_billed_amount.toLocaleString('en-US', {minimumFractionDigits: 2})}</div>
+            </div>
+            <div style="background: var(--bg-card); padding: 10px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Calculated Allowable</div>
+              <div style="font-size: 18px; font-weight: 700; color: ${disposition === 'PAID' ? '#16A34A' : '#DC2626'};">$${allowable.toLocaleString('en-US', {minimumFractionDigits: 2})}</div>
+            </div>
+            <div style="background: var(--bg-card); padding: 10px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Contractual Discount</div>
+              <div style="font-size: 18px; font-weight: 700;">$${discount.toLocaleString('en-US', {minimumFractionDigits: 2})}</div>
+            </div>
+            <div style="background: var(--bg-card); padding: 10px; border-radius: 6px; border: 1px solid var(--border);">
+              <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Pricing Methodology</div>
+              <div style="font-size: 14px; font-weight: 700; margin-top: 4px;">${methodology}</div>
+            </div>
+          </div>
+          <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 6px;"><strong style="color: var(--text-main);">Governing Contract Citation:</strong> ${citation}</div>
+          <div class="audit-box"><strong>Chain-of-Thought Audit Trail:</strong>\n${cotAudit.join('\n')}</div>
+        `;
+      }
+    }
+
+    function copyClaimX12() {
+      const text = document.getElementById('rawX12Input').value;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyClaimX12Btn');
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = orig, 1500);
+      });
+    }
+
+    function copyClaimJson() {
+      const text = document.getElementById('convertedJsonOutput').value;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyClaimJsonBtn');
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = orig, 1500);
+      });
+    }
+
+    // Initialize Claim Inspector on page load
+    loadClaimItem('837p', false);
+
+    // Deep linking via URL query parameters or hash (?view=single, ?tab=verification, #x12)
+    (function handleDeepLink() {
+      const params = new URLSearchParams(window.location.search);
+      const view = (params.get('view') || params.get('tab') || window.location.hash.replace('#', '')).toLowerCase();
+      const map = {
+        'x12': 'tab-verification',
+        'single': 'tab-verification',
+        'claim': 'tab-verification',
+        'golden': 'tab-verification',
+        'parity': 'tab-verification',
+        'batch': 'tab-verification',
+        'verification': 'tab-verification',
+        'monitoring': 'tab-monitoring',
+        'pipeline': 'tab-monitoring',
+        'pricing': 'tab-pricing',
+        'adjudicator': 'tab-pricing',
+        'cogs': 'tab-cogs',
+        'ingestion': 'tab-ingestion'
+      };
+      if (map[view]) {
+        switchTab(map[view]);
+      }
+    })();
+
+    // Ingestion Raw Document vs Structured JSON Data Repository
+    const ingestionViewData = {"CTR-COMM-2026": {"id": "CTR-COMM-2026", "title": "Regional Commercial Health Network Agreement", "type": "CONTRACT RATE CARD", "raw_source": "commercial_provider_contract.pdf", "json_source": "commercial_provider_contract.json", "raw_text": "MASTER PARTICIPATING PROVIDER SERVICES\n AGREEMENT\nContract Reference: CTR-COMM-2026\nPlan: Regional Commercial Health Network | Line of Business: Commercial (HMO/PPO)\nEffective Dates: January 1, 2026 through December 31, 2026\nParticipating NPIs: 1982730192, 1548291034, 1827391029, 1293840192, 1992830111\nARTICLE III: REIMBURSEMENT METHODOLOGIES\nSection 3.1 - Professional Fee Schedule: Participating Provider shall be reimbursed for Covered Services rendered\nto Commercial Members in accordance with the allowable fee schedule rates set forth in Exhibit A attached hereto.\nSection 4.2 - Inpatient Facility DRG Adjudication: Inpatient acute care hospital admissions shall be reimbursed\nunder the CMS MS-DRG prospective payment methodology utilizing a hospital-specific base rate of $10,500.00\nmultiplied by the CMS Relative Weight. Cases where total billed charges exceed the high-cost outlier threshold of\n$45,000.00 shall qualify for an outlier payment calculated at an eighty percent (80%) marginal rate for charges\nexceeding the threshold.\nSection 5.1 - Multiple Procedure Payment Reduction (MPPR): When multiple qualifying surgical procedures are\nperformed by the same physician during the same operative encounter, the primary procedure with the highest\ncontracted allowable shall be reimbursed at 100%, and the secondary and subsequent procedures shall be\nreimbursed at 50% of the allowable schedule.\nSection 6.4 - Diagnostic Splitting: Diagnostic radiological and cardiovascular procedures billed with Modifier 26\n(Professional Component) or Modifier TC (Technical Component) shall be reimbursed strictly in accordance with the\ncomponent schedules defined in Exhibit A.\nSection 7.3 - Timely Filing Limits: Claims must be submitted within ninety (90) calendar days from the date of\nservice. Untimely claims submitted after 90 days are subject to contractual denial under CARC CO-29.\nSection 8.2 - Bundled & Incidental Codes: Incidental services including CPT 99000 (specimen handling) are\ndeemed bundled into primary evaluation or venipuncture services and are non-reimbursable (CARC CO-97).\nEXHIBIT A: COMMERCIAL FEE SCHEDULE (EXCERPT)\nCPT/HCPCS\nDescription\nContracted Allowable\n99213\nOffice Visit - Level 3 Established\n$120.00\n99214\nOffice Visit - Level 4 Established\n$165.00\n99215\nOffice Visit - Level 5 Established\n$225.00\n29881\nKnee Arthroscopy w/ Meniscectomy\n$1,250.00\n29882\nKnee Arthroscopy w/ Meniscus Repair\n$1,400.00\n71046\nChest X-Ray 2 Views (Global)\n$85.00\n71046-26\nChest X-Ray (Professional)\n$35.00\n71046-TC\nChest X-Ray (Technical)\n$50.00\n93000\nElectrocardiogram Routine (Global)\n$60.00\n99000\nSpecimen Handling & Transport\n$0.00 (Bundled)", "json_data": {"contract_id": "CTR-COMM-2026", "contract_name": "Regional Commercial Health Network Agreement", "line_of_business": "COMMERCIAL", "provider_npi_list": ["1982730192", "1548291034", "1827391029", "1293840192", "1992830111"], "effective_start": "2026-01-01", "effective_end": "2026-12-31", "fee_schedule": {"99203": 150.0, "99204": 210.0, "99213": 120.0, "99214": 165.0, "99215": 225.0, "29881": 1250.0, "29882": 1400.0, "45378": 850.0, "45380": 950.0, "71046": 85.0, "71046-26": 35.0, "71046-TC": 50.0, "93000": 60.0, "93000-26": 25.0, "93000-TC": 35.0, "99000": 0.0, "36415": 15.0}, "drg_rules": {"470": {"drg_code": "470", "description": "Major Hip and Knee Joint Replacement w/o MCC", "base_rate": 10500.0, "relative_weight": 1.95, "outlier_threshold": 45000.0, "outlier_marginal_rate": 0.8}, "871": {"drg_code": "871", "description": "Septicemia or Severe Sepsis w/o MV >96 Hours w/ MCC", "base_rate": 10500.0, "relative_weight": 1.72, "outlier_threshold": 45000.0, "outlier_marginal_rate": 0.8}, "194": {"drg_code": "194", "description": "Simple Pneumonia & Pleurisy w/ CC", "base_rate": 10500.0, "relative_weight": 0.98, "outlier_threshold": 45000.0, "outlier_marginal_rate": 0.8}}, "percent_of_charges_rules": [{"category": "Unlisted Surgical / Medical Supplies", "revenue_code_prefix": "0270", "percent_allowable": 0.6}, {"category": "Operating Room Services", "revenue_code_prefix": "0360", "percent_allowable": 0.65}], "per_diem_rates": {"0110": 1800.0, "0200": 3500.0}, "contract_clauses": {"Section 3.1": "Professional Fee Schedule: Rates established in Exhibit A govern standard allowable payments.", "Section 4.2": "Inpatient Facility DRG Adjudication: Base rate multiplied by CMS Relative Weight. High cost outliers qualify if total billed exceeds $45,000 threshold, paid at 80% marginal factor.", "Section 5.1": "Multiple Procedure Payment Reduction (MPPR): Primary surgical procedure reimbursed at 100% of fee schedule; secondary and subsequent qualifying surgical procedures reimbursed at 50%.", "Section 6.4": "Diagnostic Splitting: When billed with modifier 26 or TC, allowable splits strictly to professional/technical schedules.", "Section 7.3": "Timely Filing Limit: All claims must be submitted within 90 days of the date of service. Untimely claims are non-reimbursable.", "Section 8.2": "Incidental and Bundled Codes: CPT 99000 (handling) is considered bundled into primary service and is non-payable."}}}, "CTR-MED-ADV-2026": {"id": "CTR-MED-ADV-2026", "title": "National Medicare Advantage Provider Contract", "type": "CONTRACT RATE CARD", "raw_source": "medicare_advantage_contract.pdf", "json_source": "medicare_advantage_contract.json", "raw_text": "MEDICARE ADVANTAGE PARTICIPATING PROVIDER\n AGREEMENT\nContract Reference: CTR-MED-ADV-2026\nPlan: National Medicare Choice Plus | Line of Business: Medicare Advantage\nEffective Window: January 1, 2026 to December 31, 2026\nSECTION 2.1 - CMS MPFS FEE SCHEDULE PARITY\nAllowable amounts for professional services are established based on the CMS National Physician Fee Schedule\n(MPFS) with applicable geographic practice cost indices (GPCI).\nSECTION 3.5 - CMS IPPS DRG METHODOLOGY\nInpatient facility admissions are reimbursed under CMS Inpatient Prospective Payment System (IPPS) MS-DRG\nschedules using a base rate of $7,200.00 and an outlier threshold of $40,000.00.\nSECTION 6.1 - TIMELY FILING LIMIT\nMedicare Advantage claims must be filed within 365 calendar days from the date of service in accordance with CMS\nregulations.", "json_data": {"contract_id": "CTR-MED-ADV-2026", "contract_name": "National Medicare Advantage Provider Contract", "line_of_business": "MEDICARE", "provider_npi_list": ["1649201948", "1748291034", "1982730192"], "effective_start": "2026-01-01", "effective_end": "2026-12-31", "fee_schedule": {"99203": 115.0, "99204": 168.0, "99213": 95.0, "99214": 135.0, "99215": 185.0, "29881": 950.0, "29882": 1050.0, "45378": 650.0, "45380": 730.0, "71046": 65.0, "71046-26": 28.0, "71046-TC": 37.0, "93000": 45.0, "93000-26": 18.0, "93000-TC": 27.0, "99000": 0.0, "36415": 10.0}, "drg_rules": {"470": {"drg_code": "470", "description": "Major Hip and Knee Joint Replacement w/o MCC", "base_rate": 7200.0, "relative_weight": 1.95, "outlier_threshold": 40000.0, "outlier_marginal_rate": 0.8}, "871": {"drg_code": "871", "description": "Septicemia or Severe Sepsis w/o MV >96 Hours w/ MCC", "base_rate": 7200.0, "relative_weight": 1.72, "outlier_threshold": 40000.0, "outlier_marginal_rate": 0.8}, "194": {"drg_code": "194", "description": "Simple Pneumonia & Pleurisy w/ CC", "base_rate": 7200.0, "relative_weight": 0.98, "outlier_threshold": 40000.0, "outlier_marginal_rate": 0.8}}, "percent_of_charges_rules": [{"category": "Unlisted Hospital Charges", "revenue_code_prefix": "0270", "percent_allowable": 0.5}], "per_diem_rates": {"0110": 1350.0, "0200": 2600.0}, "contract_clauses": {"Section 2.1": "CMS Fee Schedule Parity: Physician allowable is pegged directly to the CMS MPFS Medicare Advantage rate file.", "Section 3.5": "CMS IPPS DRG Methodology: Inpatient stays reimbursed under CMS Inpatient Prospective Payment System base rates.", "Section 4.1": "CMS MPPR Regulations: Multiple surgical reductions follow CMS Chapter 13 MPFS rules (50% reduction on secondary).", "Section 6.1": "Timely Filing: Medicare Advantage timely filing limit is 365 calendar days from service date."}}}, "CTR-MCD-MCO-2026": {"id": "CTR-MCD-MCO-2026", "title": "Community Medicaid Managed Care Agreement", "type": "CONTRACT RATE CARD", "raw_source": "medicaid_managed_care_contract.pdf", "json_source": "medicaid_managed_care_contract.json", "raw_text": "MEDICAID MANAGED CARE ORGANIZATION (MCO)\n AGREEMENT\nContract Reference: CTR-MCD-MCO-2026\nPlan: Community Medicaid Managed Care | Line of Business: Medicaid MCO\nSECTION 1.4 - STATE MEDICAID FEE BASE\nReimbursement is established pursuant to the State Department of Health Medicaid Fee Schedule (base rate\n$6,100.00 for inpatient DRG). Timely filing limit is 180 calendar days.", "json_data": {"contract_id": "CTR-MCD-MCO-2026", "contract_name": "Community Medicaid Managed Care Agreement", "line_of_business": "MEDICAID", "provider_npi_list": ["1382910492", "1982730192", "1182739401"], "effective_start": "2026-01-01", "effective_end": "2026-12-31", "fee_schedule": {"99203": 90.0, "99204": 130.0, "99213": 75.0, "99214": 105.0, "99215": 145.0, "29881": 780.0, "29882": 880.0, "45378": 520.0, "45380": 590.0, "71046": 50.0, "71046-26": 20.0, "71046-TC": 30.0, "93000": 35.0, "93000-26": 15.0, "93000-TC": 20.0, "99000": 0.0, "36415": 8.0}, "drg_rules": {"470": {"drg_code": "470", "description": "Major Hip and Knee Joint Replacement w/o MCC", "base_rate": 6100.0, "relative_weight": 1.95, "outlier_threshold": 35000.0, "outlier_marginal_rate": 0.75}, "871": {"drg_code": "871", "description": "Septicemia or Severe Sepsis w/o MV >96 Hours w/ MCC", "base_rate": 6100.0, "relative_weight": 1.72, "outlier_threshold": 35000.0, "outlier_marginal_rate": 0.75}, "194": {"drg_code": "194", "description": "Simple Pneumonia & Pleurisy w/ CC", "base_rate": 6100.0, "relative_weight": 0.98, "outlier_threshold": 35000.0, "outlier_marginal_rate": 0.75}}, "percent_of_charges_rules": [{"category": "Medicaid Supplies", "revenue_code_prefix": "0270", "percent_allowable": 0.45}], "per_diem_rates": {"0110": 1100.0, "0200": 2100.0}, "contract_clauses": {"Section 1.4": "State Medicaid Fee Base: Reimbursed in accordance with the State Department of Health Fee Schedule.", "Section 2.3": "Prior Authorization Required: Select surgical procedures require documented state prior authorization.", "Section 3.2": "Timely Filing: Medicaid claims must be filed within 180 calendar days of service."}}}, "CMS-NCD-220.4": {"id": "CMS-NCD-220.4", "title": "Diagnostic Ultrasound in Cardiac Procedures", "type": "REIMBURSEMENT POLICY", "raw_source": "CMS_NCD_220_4_Cardiac_Diagnostic_Ultrasound.pdf", "json_source": "cms_lcd_ncd_policies.json", "raw_text": "CENTERS FOR MEDICARE & MEDICAID SERVICES (CMS)\nNational Coverage Determination (NCD) 220.4: Diagnostic Ultrasound in\nCardiac Procedures\nEffective Date: January 1, 2026 | Tracking Code: CMS-NCD-220.4\nTarget Procedure Codes: 93000, 93000-26, 93000-TC (Electrocardiogram and Cardiac Ultrasound)\nCoverage Criteria & Medical Necessity (Paragraph 3.1(a)):\nDiagnostic cardiac evaluation is covered when the primary clinical indication demonstrates medical necessity, defined\nas documented atherosclerotic heart disease (ICD-10 I25.10), heart failure (I50.9), essential hypertension (I10), or\nacute chest pain (R07.9). Services billed without a qualifying medical necessity diagnosis are denied under CARC\nCO-16.", "json_data": {"policy_id": "CMS-NCD-220.4", "policy_title": "Diagnostic Ultrasound in Cardiac Procedures", "policy_type": "CMS_NCD", "paragraph_id": "Paragraph 3.1(a)", "target_procedure_codes": ["93000", "93000-26", "93000-TC"], "rule_action": "ALLOW", "required_diagnosis_codes": ["I25.10", "I50.9", "R07.9", "I10"], "bundled_exclusive_codes": [], "required_modifiers": [], "citation_text": "CMS National Coverage Determination (NCD) 220.4, Paragraph 3.1(a): Diagnostic cardiac evaluation is covered when primary indication includes atherosclerotic heart disease (I25.10), heart failure (I50.9), or chest pain (R07.9).", "rule_description": "Medical necessity verification for diagnostic electrocardiograms and cardiac ultrasound.", "denial_carc": "CO-16"}}, "CMS-LCD-L33587": {"id": "CMS-LCD-L33587", "title": "Spinal Injections and Pain Interventions", "type": "REIMBURSEMENT POLICY", "raw_source": "CMS_LCD_L33587_Spinal_Injections_Interventions.pdf", "json_source": "cms_lcd_ncd_policies.json", "raw_text": "CENTERS FOR MEDICARE & MEDICAID SERVICES (CMS)\nLocal Coverage Determination (LCD) L33587: Spinal Injections for Pain\nInterventions\nParagraph 4.2(b) - Clinical Documentation Criteria:\nFacet joint and interventional spinal injections (CPT 64490, 64493) require prior authorization and documented failed\nconservative therapy with qualifying diagnosis (M54.5, M47.816). Non-qualifying claims deny with CARC CO-16.", "json_data": {"policy_id": "CMS-LCD-L33587", "policy_title": "Spinal Injections and Pain Interventions", "policy_type": "CMS_LCD", "paragraph_id": "Paragraph 4.2(b)", "target_procedure_codes": ["64490", "64493"], "rule_action": "ALLOW", "required_diagnosis_codes": ["M54.5", "M47.816"], "bundled_exclusive_codes": [], "required_modifiers": [], "citation_text": "CMS Local Coverage Determination (LCD) L33587, Paragraph 4.2(b): Interventional spine injections require documented failed conservative therapy and qualifying lumbar radiculopathy diagnosis.", "rule_description": "Facet injection medical necessity and prior authorization guidelines.", "denial_carc": "CO-16"}}, "PAYER-RP-042": {"id": "PAYER-RP-042", "title": "Multiple Procedure Payment Reduction (MPPR) for Surgery", "type": "REIMBURSEMENT POLICY", "raw_source": "PAYER_RP_042_Multiple_Procedure_Payment_Reduction.pdf", "json_source": "commercial_reimbursement_policies.json", "raw_text": "COMMERCIAL REIMBURSEMENT POLICY: PAYER-RP-042\nMultiple Procedure Payment Reduction (MPPR) for Surgical Procedures\nParagraph 4.1 - Methodology and Application:\nWhen multiple surgical procedures are performed during the same operative session by the same provider, the\nhighest-valued procedure is reimbursed at 100% of the contracted fee schedule. The secondary and all subsequent\nqualifying surgical procedures (e.g. CPT 29882 billed with 29881) are reduced by fifty percent (50%). Modifier 51 or\nMPPR edits indicate the secondary procedure discount.", "json_data": {"policy_id": "PAYER-RP-042", "policy_title": "Multiple Procedure Payment Reduction (MPPR) for Surgery", "policy_type": "COMMERCIAL_REIMBURSEMENT", "paragraph_id": "Paragraph 4.1", "target_procedure_codes": ["29882", "29881"], "rule_action": "REDUCE_50", "required_diagnosis_codes": [], "bundled_exclusive_codes": [], "required_modifiers": ["51", "59"], "citation_text": "Commercial Reimbursement Policy RP-042, Paragraph 4.1: When multiple surgical procedures are performed during the same operative session, the highest-valued procedure is reimbursed at 100% and secondary procedures are reduced by 50%.", "rule_description": "Applies 50% discount to lower-ranked surgical claim lines when performed in conjunction with primary arthroscopy.", "denial_carc": null}}, "PAYER-RP-109": {"id": "PAYER-RP-109", "title": "Same-Day Evaluation & Management with Procedure (Modifier -25)", "type": "REIMBURSEMENT POLICY", "raw_source": "PAYER_RP_109_Same_Day_EM_Modifier_25.pdf", "json_source": "commercial_reimbursement_policies.json", "raw_text": "COMMERCIAL REIMBURSEMENT POLICY: PAYER-RP-109\nSame-Day Evaluation & Management with Procedure (Modifier -25)\nParagraph 3.2 - Documentation Criteria:\nEvaluation and Management (E&M;) services (CPT 99213, 99214, 99215) billed on the same date of service as a\nminor surgical procedure are payable only when appended with Modifier -25 indicating a significant, separately\nidentifiable medical service. Claims lacking Modifier -25 are denied with CARC CO-16.", "json_data": {"policy_id": "PAYER-RP-109", "policy_title": "Same-Day Evaluation & Management with Procedure (Modifier -25)", "policy_type": "COMMERCIAL_REIMBURSEMENT", "paragraph_id": "Paragraph 3.2", "target_procedure_codes": ["99213", "99214", "99215"], "rule_action": "ALLOW", "required_diagnosis_codes": [], "bundled_exclusive_codes": [], "required_modifiers": ["25"], "citation_text": "Commercial Reimbursement Policy RP-109, Paragraph 3.2: E&M codes billed on the same day as a minor surgical procedure are payable only when appended with Modifier -25 indicating a significant, separately identifiable service.", "rule_description": "Modifier -25 verification for same-day office visit with procedure.", "denial_carc": "CO-16"}}, "PAYER-RP-018": {"id": "PAYER-RP-018", "title": "Incidental and Bundled Services Policy", "type": "REIMBURSEMENT POLICY", "raw_source": "PAYER_RP_018_Incidental_Bundled_Services.pdf", "json_source": "commercial_reimbursement_policies.json", "raw_text": "COMMERCIAL REIMBURSEMENT POLICY: PAYER-RP-018\nIncidental and Bundled Medical Services Policy\nParagraph 5.1 - Specimen Handling Bundling:\nCPT 99000 (specimen handling) is an integral component of routine office visits and venipuncture. It is considered\nbundled and non-reimbursable. Disallowed line items receive CARC CO-97.", "json_data": {"policy_id": "PAYER-RP-018", "policy_title": "Incidental and Bundled Services Policy", "policy_type": "COMMERCIAL_REIMBURSEMENT", "paragraph_id": "Paragraph 5.1", "target_procedure_codes": ["99000"], "rule_action": "DENY", "required_diagnosis_codes": [], "bundled_exclusive_codes": ["36415", "99213", "99214"], "required_modifiers": [], "citation_text": "Commercial Reimbursement Policy RP-018, Paragraph 5.1: CPT 99000 (specimen handling) is an integral component of venipuncture and office encounters. It is bundled and non-reimbursable.", "rule_description": "Automated denial of bundled specimen handling fees under CARC CO-97.", "denial_carc": "CO-97"}}, "PAYER-RP-003": {"id": "PAYER-RP-003", "title": "Timely Filing Limit Adjudication Policy", "type": "REIMBURSEMENT POLICY", "raw_source": "PAYER_RP_003_Timely_Filing_Limit.pdf", "json_source": "commercial_reimbursement_policies.json", "raw_text": "COMMERCIAL REIMBURSEMENT POLICY: PAYER-RP-003\nContractual Timely Filing Limits\nParagraph 1.2 - Commercial 90-Day Submission Deadline:\nClaims submitted later than 90 calendar days from the date of service are denied as untimely filing under CARC\nCO-29. Members are held harmless from billed charges.", "json_data": {"policy_id": "PAYER-RP-003", "policy_title": "Timely Filing Limit Adjudication Policy", "policy_type": "COMMERCIAL_REIMBURSEMENT", "paragraph_id": "Paragraph 1.2", "target_procedure_codes": [], "rule_action": "DENY", "required_diagnosis_codes": [], "bundled_exclusive_codes": [], "required_modifiers": [], "timely_filing_limit_days": 90, "citation_text": "Commercial Reimbursement Policy RP-003, Paragraph 1.2: Claims submitted past the 90-day contractual timely filing window are denied with CARC CO-29.", "rule_description": "Enforces 90-day submission deadline from the date of service.", "denial_carc": "CO-29"}}};
+
+    function loadIngestionItem(key, doScroll) {
+      const item = ingestionViewData[key];
+      if (!item) return;
+
+      const sel = document.getElementById('ingestionSelect');
+      if (sel) sel.value = key;
+
+      const badge = document.getElementById('ingestionItemTypeBadge');
+      if (badge) badge.innerText = item.type;
+
+      const rawLabel = document.getElementById('ingestionRawFileLabel');
+      if (rawLabel) rawLabel.innerText = item.raw_source;
+
+      const jsonLabel = document.getElementById('ingestionJsonFileLabel');
+      if (jsonLabel) jsonLabel.innerText = item.json_source;
+
+      const rawViewer = document.getElementById('ingestionRawViewer');
+      if (rawViewer) rawViewer.value = item.raw_text;
+
+      const jsonViewer = document.getElementById('ingestionJsonViewer');
+      if (jsonViewer) jsonViewer.value = JSON.stringify(item.json_data, null, 2);
+
+      document.querySelectorAll('.clickable-row').forEach(r => r.classList.remove('active-row'));
+      const activeRow = document.getElementById('row-' + key);
+      if (activeRow) activeRow.classList.add('active-row');
+
+      const metaBox = document.getElementById('ingestionMetaBox');
+      if (metaBox) {
+        let details = '';
+        if (item.type === 'CONTRACT RATE CARD') {
+          const jd = item.json_data;
+          const feeCount = Object.keys(jd.fee_schedule || {}).length;
+          const drgCount = Object.keys(jd.drg_rules || {}).length;
+          const npis = (jd.provider_npi_list || []).join(', ');
+          details = '<strong>Contract Entity:</strong> ' + jd.contract_name + ' | <strong>LOB:</strong> ' + jd.line_of_business + ' | <strong>Effective:</strong> ' + jd.effective_start + ' to ' + jd.effective_end + '<br>' +
+                     '<strong>Rate Card Extraction:</strong> ' + feeCount + ' Fee Schedule entries, ' + drgCount + ' DRG Case Rates | <strong>Participating Providers:</strong> ' + npis;
+        } else {
+          const jd = item.json_data;
+          const targetCodes = (jd.target_procedure_codes || []).join(', ') || 'GLOBAL';
+          details = '<strong>Policy Title:</strong> ' + jd.policy_title + ' | <strong>Type:</strong> ' + jd.policy_type + ' | <strong>Paragraph:</strong> ' + jd.paragraph_id + '<br>' +
+                     '<strong>Target Procedures:</strong> ' + targetCodes + ' | <strong>Adjudication Action:</strong> ' + jd.rule_action + ' (CARC: ' + (jd.denial_carc || 'N/A') + ')<br>' +
+                     '<strong>Citation Text:</strong> <em>' + jd.citation_text + '</em>';
+        }
+        metaBox.innerHTML = details;
+      }
+
+      if (doScroll) {
+        const viewer = document.getElementById('ingestionInspectorViewer');
+        if (viewer) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function copyRawDocText() {
+      const text = document.getElementById('ingestionRawViewer').value;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyRawDocBtn');
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = orig, 1500);
+      });
+    }
+
+    function copyParsedJsonText() {
+      const text = document.getElementById('ingestionJsonViewer').value;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyParsedJsonBtn');
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = orig, 1500);
+      });
+    }
+
+    // Initialize Ingestion Dual-Pane Viewer on page load
+    loadIngestionItem('CTR-COMM-2026', false);
+
+  </script>
+</body>
+</html>
