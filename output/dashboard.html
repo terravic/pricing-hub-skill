@@ -1345,24 +1345,85 @@ IEA*1*000000071~`
       }
     }
 
+    // Universal Clipboard Engine with Multi-Layer Fallback (Navigator API + ExecCommand)
+    function copyToClipboard(text, btnElement, successMsg = 'Copied!') {
+      if (!text) {
+        if (btnElement) {
+          const orig = btnElement.innerText;
+          btnElement.innerText = 'No Content!';
+          setTimeout(() => { btnElement.innerText = orig; }, 1500);
+        }
+        return;
+      }
+
+      function flashSuccess() {
+        if (btnElement) {
+          const orig = btnElement.innerText;
+          btnElement.innerText = successMsg;
+          btnElement.style.borderColor = 'var(--primary)';
+          btnElement.style.color = 'var(--primary)';
+          btnElement.style.fontWeight = '700';
+          setTimeout(() => {
+            btnElement.innerText = orig;
+            btnElement.style.borderColor = '';
+            btnElement.style.color = '';
+            btnElement.style.fontWeight = '';
+          }, 1800);
+        }
+      }
+
+      function execCopyFallback(val) {
+        let ok = false;
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = val;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.top = '0';
+          ta.style.left = '-9999px';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          ta.setSelectionRange(0, val.length);
+          ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+        } catch (e) {
+          console.warn('Fallback copy error:', e);
+        }
+        return ok;
+      }
+
+      // Try modern navigator.clipboard first if in secure context
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          flashSuccess();
+        }).catch(() => {
+          // Seamless fallback to execCommand if permission or focus fails
+          if (execCopyFallback(text)) {
+            flashSuccess();
+          }
+        });
+      } else {
+        // Fallback for file:// protocol, non-secure origins, or embedded iframes
+        if (execCopyFallback(text)) {
+          flashSuccess();
+        }
+      }
+    }
+
     function copyClaimX12() {
-      const text = document.getElementById('rawX12Input').value;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copyClaimX12Btn');
-        const orig = btn.innerText;
-        btn.innerText = 'Copied!';
-        setTimeout(() => btn.innerText = orig, 1500);
-      });
+      const ta = document.getElementById('rawX12Input');
+      const text = ta ? ta.value : '';
+      const btn = document.getElementById('copyClaimX12Btn');
+      copyToClipboard(text, btn, 'Copied Raw X12!');
     }
 
     function copyClaimJson() {
-      const text = document.getElementById('convertedJsonOutput').value;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copyClaimJsonBtn');
-        const orig = btn.innerText;
-        btn.innerText = 'Copied!';
-        setTimeout(() => btn.innerText = orig, 1500);
-      });
+      const ta = document.getElementById('convertedJsonOutput');
+      const text = ta ? ta.value : '';
+      const btn = document.getElementById('copyClaimJsonBtn');
+      copyToClipboard(text, btn, 'Copied Structured JSON!');
     }
 
     // Initialize Claim Inspector on page load
@@ -1454,23 +1515,17 @@ IEA*1*000000071~`
     }
 
     function copyRawDocText() {
-      const text = document.getElementById('ingestionRawViewer').value;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copyRawDocBtn');
-        const orig = btn.innerText;
-        btn.innerText = 'Copied!';
-        setTimeout(() => btn.innerText = orig, 1500);
-      });
+      const ta = document.getElementById('ingestionRawViewer');
+      const text = ta ? ta.value : '';
+      const btn = document.getElementById('copyRawDocBtn');
+      copyToClipboard(text, btn, 'Copied Raw Text!');
     }
 
     function copyParsedJsonText() {
-      const text = document.getElementById('ingestionJsonViewer').value;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copyParsedJsonBtn');
-        const orig = btn.innerText;
-        btn.innerText = 'Copied!';
-        setTimeout(() => btn.innerText = orig, 1500);
-      });
+      const ta = document.getElementById('ingestionJsonViewer');
+      const text = ta ? ta.value : '';
+      const btn = document.getElementById('copyParsedJsonBtn');
+      copyToClipboard(text, btn, 'Copied Parsed JSON!');
     }
 
     // Initialize Ingestion Dual-Pane Viewer on page load
